@@ -21,7 +21,7 @@ export default function Navbar({ lifetimeEarnings}) {
           {/* Logo & Brand */}
           <div className={styles.brandGroup}>
             <img
-              src='../src/assets/images/veloop.png'
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXx2vUtBV7HlF-xDMeeujJZdxtriaqVT4RPaDN5iup0A&s=10i'
               alt="Veloop image"
               className={styles.img}
             />
