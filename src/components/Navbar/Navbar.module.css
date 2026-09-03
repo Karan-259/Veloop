@@ -1,0 +1,179 @@
+.navbarWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-glass-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem 0;
+  transition: var(--transition-smooth);
+}
+
+.navbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.img {
+  width: 60px;
+  border-radius: 50%;
+  transform: rotate(0 deg);
+  transition: transform 0.1s linear;
+  animation: spinContinuous 3s linear infinite;
+}
+
+@keyframes spinContinuous {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logoSymbol {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #030712;
+  letter-spacing: -0.05em;
+}
+
+.brandNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.2;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #ffffff 30%, #a7f3d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandTag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--primary-light);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.bankStatusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.bankStatusBadge strong {
+  color: var(--text-primary);
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.soundButton {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.soundButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.tierPill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: var(--gold-accent);
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.walletPill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.08));
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 0.4rem 0.95rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.walletIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walletDetails {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.walletBalance {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.tokenUnit {
+  color: var(--primary-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.fiatEquiv {
+  font-size: 0.72rem;
+  color: var(--cyan-accent);
+  font-weight: 600;
+}

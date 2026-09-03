@@ -1,0 +1,215 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainInventorySection {
+  padding: 2rem 0 3.5rem;
+}
+
+.inventoryHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.sectionBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--primary-light);
+  text-transform: uppercase;
+}
+
+.inventoryTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.inventorySubtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+.headerActionGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  position: relative;
+  min-width: 260px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.65rem 1rem 0.65rem 2.6rem;
+  color: #fff;
+  font-size: 0.88rem;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.searchInput:focus {
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.resetDemoBtn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.resetDemoBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: var(--border-medium);
+}
+
+/* Filter Bar */
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.categoryTabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.catTab {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.catTab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.catTabActive {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #fff;
+}
+
+.tabCount {
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  color: var(--text-muted);
+}
+
+.catTabActive .tabCount {
+  color: var(--primary-light);
+  background: rgba(16, 185, 129, 0.25);
+}
+
+.statusPills {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+  padding: 0.3rem;
+  border-radius: 10px;
+}
+
+.statusFilterBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.statusFilterBtn:hover {
+  color: var(--text-secondary);
+}
+
+.statusFilterActive {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Footer */
+.pageFooter {
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  padding: 2rem 0;
+  background: rgba(6, 9, 17, 0.95);
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footerBrand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+}

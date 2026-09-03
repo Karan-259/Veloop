@@ -1,0 +1,126 @@
+.statsSection {
+  padding: 1.5rem 0 2rem;
+}
+
+.statCard {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-medium);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+}
+
+/* Emerald Variant */
+.emerald .iconCircle {
+  color: var(--primary-light);
+  background: rgba(16, 185, 129, 0.12);
+}
+.emerald:hover::before {
+  background: linear-gradient(90deg, #10b981, transparent);
+}
+
+/* Gold Variant */
+.gold .iconCircle {
+  color: var(--gold-accent);
+  background: rgba(245, 158, 11, 0.12);
+}
+.gold:hover::before {
+  background: linear-gradient(90deg, #f59e0b, transparent);
+}
+
+/* Cyan Variant */
+.cyan .iconCircle {
+  color: var(--cyan-accent);
+  background: rgba(6, 182, 212, 0.12);
+}
+.cyan:hover::before {
+  background: linear-gradient(90deg, #06b6d4, transparent);
+}
+
+/* Purple Variant */
+.purple .iconCircle {
+  color: var(--purple-accent);
+  background: rgba(139, 92, 246, 0.12);
+}
+.purple:hover::before {
+  background: linear-gradient(90deg, #8b5cf6, transparent);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.statTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.iconCircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statMainValue {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+}
+
+.statFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  gap: 0.5rem;
+}
+
+.subvalue {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.trendBadge {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.7rem;
+}

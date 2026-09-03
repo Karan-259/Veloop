@@ -1,0 +1,224 @@
+.rewardInfoSection {
+  padding: 2.5rem 0 3rem;
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  color: var(--primary-light);
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.sectionLead {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.infoCard {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.7);
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyan .iconBox {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--cyan-accent);
+}
+
+.gold .iconBox {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--gold-accent);
+}
+
+.emerald .iconBox {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--primary-light);
+}
+
+.stepNumberBadge {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: -0.05em;
+}
+
+.cardTitle {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.65rem;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.cardFooter {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pillBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Calculator Banner */
+.calcBanner {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(17, 26, 46, 0.85) 0%, rgba(10, 16, 30, 0.95) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 20px;
+}
+
+.calcTag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--primary-light);
+  background: rgba(16, 185, 129, 0.15);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.calcHeading {
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.calcDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.sliderWrap {
+  padding: 0.5rem 0;
+}
+
+.rangeSlider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #1e293b;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+.payoutSummaryBox {
+  background: rgba(6, 11, 22, 0.8);
+  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.payoutLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.payoutValueGroup {
+  margin-bottom: 1rem;
+}
+
+.payoutUSD {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.payoutINR {
+  font-size: 1.05rem;
+  color: var(--cyan-accent);
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.payoutMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.payoutMeta strong {
+  color: var(--primary-light);
+}

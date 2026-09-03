@@ -1,0 +1,70 @@
+.emptyContainer {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background: var(--bg-glass-card);
+  border: 1px dashed var(--border-medium);
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.iconCircleSuccess {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.emptyTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.emptyDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 440px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.resetButton {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-medium);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.resetButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
