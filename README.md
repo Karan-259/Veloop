@@ -63,14 +63,16 @@ This project is a complete from-scratch UI/UX redesign and redevelopment built w
 ---
 
 ## 🛠️ Technology Stack
-- **Core**: React 19, JavaScript (ESNext)
-- **Bundler & Dev Server**: Vite 8
-- **Layout & Grid**: Bootstrap 5 (`bootstrap/dist/css/bootstrap.min.css`)
-- **Styling Architecture**: Scoped CSS Modules (`*.module.css`) + CSS Custom Properties Design Tokens (`variables.css`)
-- **Icons**: `lucide-react`
-- **Celebration FX**: `canvas-confetti`
-- **Micro-Animations**: Framer Motion & CSS3 Keyframes
-- **Audio Synthesis**: Web Audio API (zero external audio file dependencies)
+- React.js
+- Vite
+- Bootstrap 5
+- CSS Modules (.module.css)
+- React Icons
+- Lucide React
+- React Hooks
+- Canvas-confetti
+- Framer Motion & CSS3 Keyframes
+- Web Audio API
 
 ---
 
@@ -171,7 +173,6 @@ VELOOP/
 ---
 
 ## 💡 Evaluation Tips & Testing Shortcuts
-- **Fast Test Mode**: When clicking **"Watch Advertisement"**, click the **"Enable Fast Test (2s)"** button at the top of the modal to accelerate the countdown timer to 2 seconds for rapid evaluation.
 - **Reset Demo State**: Click the **"Reset State"** button located next to the search input on the ad inventory bar at any time to restore initial sample data.
 - **Sound Toggle**: Use the speaker icon in the top navigation bar to test or mute procedural sound effects.
 
