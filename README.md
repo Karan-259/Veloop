@@ -1,8 +1,4 @@
-# VELOOP Rewards – Watch Ads Page Complete UI/UX Redesign
-> **Task 04 – Frontend Internship Task Assignment**  
-> High-performance, gamified rewards terminal for streaming partner advertisements, earning **VEs (VELOOP Earn Tokens)**, and withdrawing real cash directly to bank accounts.
-
----
+# VELOOP Rewards – 
 
 ## 📌 Project Overview
 **VELOOP Rewards** is a fintech-driven rewards platform where users convert their spare attention into tangible monetary value. The **Watch Ads** module is one of the core earning pillars of the ecosystem, allowing verified users to watch curated high-value brand campaigns in exchange for **VEs**.
@@ -84,7 +80,7 @@ VELOOP/
 ├── public/
 ├── src/
 │   ├── assets/
-│   │   └── images/                # High-res sponsor campaign visual assets
+│   │   └── images/               
 │   │       ├── ad-fintech.jpg
 │   │       ├── ad-ai-cloud.jpg
 │   │       ├── ad-crypto.jpg
@@ -92,50 +88,50 @@ VELOOP/
 │   │       ├── ad-neobank.jpg
 │   │       └── ad-quantum.jpg
 │   ├── components/
-│   │   ├── Navbar/                # Live balance, bank badge, sound toggle, tier pill
+│   │   ├── Navbar/                
 │   │   │   ├── Navbar.jsx
 │   │   │   └── Navbar.module.css
-│   │   ├── HeroSection/           # Headline, SVG progress ring, quick stats
+│   │   ├── HeroSection/           
 │   │   │   ├── HeroSection.jsx
 │   │   │   └── HeroSection.module.css
-│   │   ├── StatsSection/          # 5-card dynamic animated counter grid
+│   │   ├── StatsSection/         
 │   │   │   ├── StatsSection.jsx
 │   │   │   └── StatsSection.module.css
-│   │   ├── BonusBanner/           # Live countdown timer & flash promo banner
+│   │   ├── BonusBanner/          
 │   │   │   ├── BonusBanner.jsx
 │   │   │   └── BonusBanner.module.css
-│   │   ├── AdCard/                # High-yield cards with badges, durations & CTAs
+│   │   ├── AdCard/              
 │   │   │   ├── AdCard.jsx
 │   │   │   └── AdCard.module.css
-│   │   ├── AdPlayerModal/         # Interactive ad player, Fast Test mode, claim action
+│   │   ├── AdPlayerModal/         
 │   │   │   ├── AdPlayerModal.jsx
 │   │   │   └── AdPlayerModal.module.css
-│   │   ├── EarningsTimeline/      # Live activity audit feed
+│   │   ├── EarningsTimeline/      
 │   │   │   ├── EarningsTimeline.jsx
 │   │   │   └── EarningsTimeline.module.css
-│   │   ├── RewardInfo/            # 3-step withdrawal guide & interactive slider calculator
+│   │   ├── RewardInfo/            
 │   │   │   ├── RewardInfo.jsx
 │   │   │   └── RewardInfo.module.css
-│   │   └── EmptyState/            # Filter empty & all-completed states with demo reset
+│   │   └── EmptyState/            
 │   │       ├── EmptyState.jsx
 │   │       └── EmptyState.module.css
 │   ├── hooks/
-│   │   ├── useAdWatch.js          # Core state hook (ads, metrics, filters, claim logic)
-│   │   └── useAnimatedCounter.js  # Cubic easing number increment animation
+│   │   ├── useAdWatch.js          
+│   │   └── useAnimatedCounter.js  
 │   ├── pages/
-│   │   ├── WatchAds.jsx           # Main page orchestrator
-│   │   └── WatchAds.module.css    # Page-level styles
+│   │   ├── WatchAds.jsx           
+│   │   └── WatchAds.module.css    
 │   ├── styles/
-│   │   ├── variables.css          # Design tokens (obsidian theme, glass, neon accents)
-│   │   └── global.css             # Bootstrap imports, scrollbars, resets
+│   │   ├── variables.css          
+│   │   └── global.css             
 │   ├── utils/
-│   │   ├── dummyData.js           # Initial campaigns, metrics, and promos
-│   │   ├── formatters.js          # VE-to-USD/INR currency conversion and numbers
-│   │   └── soundEffects.js        # Web Audio API procedural sound synthesizer
+│   │   ├── dummyData.js           
+│   │   ├── formatters.js          
+│   │   └── soundEffects.js        
 │   ├── App.jsx
 │   ├── main.jsx
-│   ├── WatchAds.jsx               # Folder-structure root re-export
-│   └── WatchAds.module.css        # Folder-structure root re-export
+│   ├── WatchAds.jsx               
+│   └── WatchAds.module.css        
 ├── index.html
 ├── package.json
 └── vite.config.js
@@ -146,8 +142,8 @@ VELOOP/
 ## 🚀 Installation & Setup Guide
 
 ### Prerequisites
-- **Node.js**: v18.0.0 or later (Node v20+ recommended)
-- **npm**: v9.0.0 or later
+- **Node.js**
+- **npm**
 
 ### Step-by-Step Setup
 1. **Clone or Navigate to the Project Directory**:
@@ -179,9 +175,3 @@ VELOOP/
 - **Reset Demo State**: Click the **"Reset State"** button located next to the search input on the ad inventory bar at any time to restore initial sample data.
 - **Sound Toggle**: Use the speaker icon in the top navigation bar to test or mute procedural sound effects.
 
----
-
-## 👤 Author Information
-- **Internship Program**: VELOOP Rewards Frontend Internship Program
-- **Assignment**: Task 04 – Watch Ads Page Complete UI/UX Redesign
-- **Candidate**: Raik9 / Frontend Engineering Intern
