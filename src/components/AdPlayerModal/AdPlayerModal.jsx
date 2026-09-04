@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { X, Play, Pause, CheckCircle2, Sparkles, Volume2, ShieldCheck, Zap, FastForward } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, Play, Pause, CheckCircle2, Sparkles, ShieldCheck} from 'lucide-react';
 import { veToUSD } from '../../utils/formatters';
-import { soundManager } from '../../utils/soundEffects';
 import styles from './AdPlayerModal.module.css';
 
 export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
   if (!isOpen || !ad) return null;
 
-  // We allow either real duration or a 2s fast-test mode for fast testing
   const [isFastTestMode, setIsFastTestMode] = useState(false);
-  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration, 15); // cap at 15s for great UX
+  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration, 15); 
   const [secondsLeft, setSecondsLeft] = useState(totalDuration);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isFinished, setIsFinished] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
 
-  // Reset when opened
   useEffect(() => {
     setSecondsLeft(totalDuration);
     setIsPlaying(true);
@@ -23,7 +20,6 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
     setIsClaiming(false);
   }, [ad, isFastTestMode]);
 
-  // Countdown timer
   useEffect(() => {
     if (!isPlaying || isFinished) return;
 
@@ -60,7 +56,6 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        {/* Top Header */}
         <div className={styles.modalHeader}>
           <div className="d-flex align-items-center gap-2">
             <span className={styles.sponsorBadge}>SPONSORED ADVERTISEMENT</span>
@@ -90,8 +85,6 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
             <h2 className={styles.adOverlayTitle}>{ad.title}</h2>
             <p className={styles.adOverlayDesc}>{ad.description}</p>
           </div>
-
-          {/* Bottom Player Controls */}
           <div className={styles.bottomControls}>
             <div className="d-flex align-items-center gap-3">
               <button
@@ -118,8 +111,6 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
             </div>
           </div>
         </div>
-
-        {/* Modal Footer / Claim Bar */}
         <div className={styles.modalFooter}>
           <div className={styles.trustGuarantee}>
             <ShieldCheck size={18} className="text-success" />

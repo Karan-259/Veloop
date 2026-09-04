@@ -9,7 +9,7 @@ import AdPlayerModal from '../components/AdPlayerModal/AdPlayerModal';
 import EarningsTimeline from '../components/EarningsTimeline/EarningsTimeline';
 import EmptyState from '../components/EmptyState/EmptyState';
 import { useAdWatch } from '../hooks/useAdWatch';
-import { Search, SlidersHorizontal, Sparkles, Flame, RefreshCw, Trophy, Zap, Clock } from 'lucide-react';
+import { Search, RefreshCw} from 'lucide-react';
 import styles from './WatchAds.module.css';
 
 export default function WatchAds() {
@@ -23,7 +23,6 @@ export default function WatchAds() {
     statusFilter,
     searchQuery,
     timeline,
-    lastEarnedReward,
     setActiveCategory,
     setStatusFilter,
     setSearchQuery,
@@ -32,8 +31,6 @@ export default function WatchAds() {
     completeWatching,
     resetAllAds
   } = useAdWatch();
-
-  const [bonusModalOpen, setBonusModalOpen] = useState(false);
 
   const categories = [
     { id: 'all', label: 'All Campaigns', count: ads.length },
@@ -193,7 +190,6 @@ export default function WatchAds() {
 
       <RewardInfo />
 
-      {/* Footer */}
       <footer className={styles.pageFooter}>
         <div className="container-fluid px-lg-5 px-3">
           <div className={styles.footerInner}>

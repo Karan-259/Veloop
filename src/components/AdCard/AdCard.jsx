@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, Check, Clock, Coins, Sparkles, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import { Play, Check, Clock} from 'lucide-react';
 import { formatSeconds, veToUSD } from '../../utils/formatters';
 import styles from './AdCard.module.css';
 
@@ -7,19 +7,6 @@ export default function AdCard({ ad, onWatchClick }) {
   const [isHovered, setIsHovered] = useState(false);
   const isCompleted = ad.status === 'completed';
 
-  const getBadgeClass = (variant) => {
-    switch (variant) {
-      case 'gold':
-        return styles.badgeGold;
-      case 'cyan':
-        return styles.badgeCyan;
-      case 'purple':
-        return styles.badgePurple;
-      case 'emerald':
-      default:
-        return styles.badgeEmerald;
-    }
-  };
 
   return (
     <div
@@ -27,7 +14,6 @@ export default function AdCard({ ad, onWatchClick }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Thumbnail Banner Image */}
       <div className={styles.imageContainer}>
         <img
           src={ad.image}
@@ -37,11 +23,9 @@ export default function AdCard({ ad, onWatchClick }) {
         />
         <div className={styles.imageOverlay} />
 
-        {/* Floating Top Badges */}
         <div className={styles.topBadgeRow}>
-          <span className={`${styles.rewardBadge} ${getBadgeClass(ad.badgeVariant)}`}>
-            <Sparkles size={12} className="me-1" />
-            {ad.badge}
+          <span>
+            
           </span>
 
           <span className={styles.durationPill}>
@@ -50,7 +34,6 @@ export default function AdCard({ ad, onWatchClick }) {
           </span>
         </div>
 
-        {/* Status indicator on image */}
         <div className={styles.statusIndicator}>
           {isCompleted ? (
             <span className={styles.statusCompletedPill}>
@@ -64,7 +47,6 @@ export default function AdCard({ ad, onWatchClick }) {
         </div>
       </div>
 
-      {/* Card Body */}
       <div className={styles.cardBody}>
         <div className={styles.sponsorRow}>
           <span className={styles.sponsorName}>{ad.sponsor}</span>
@@ -74,7 +56,6 @@ export default function AdCard({ ad, onWatchClick }) {
         <h3 className={styles.adTitle}>{ad.title}</h3>
         <p className={styles.adDesc}>{ad.description}</p>
 
-        {/* Reward Value Display */}
         <div className={styles.rewardSummaryRow}>
           <div>
             <span className={styles.rewardSubtext}>Reward Payout</span>
@@ -86,8 +67,6 @@ export default function AdCard({ ad, onWatchClick }) {
             ≈ {veToUSD(ad.reward)}
           </div>
         </div>
-
-        {/* Premium CTA Button */}
         <button
           onClick={() => !isCompleted && onWatchClick(ad)}
           disabled={isCompleted}

@@ -13,7 +13,6 @@ export function useAnimatedCounter(targetValue, duration = 800) {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      // Ease out cubic
       const easeOut = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(startValue + change * easeOut));
 

@@ -35,7 +35,6 @@
   box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
 }
 
-/* Emerald Variant */
 .emerald .iconCircle {
   color: var(--primary-light);
   background: rgba(16, 185, 129, 0.12);
@@ -44,7 +43,6 @@
   background: linear-gradient(90deg, #10b981, transparent);
 }
 
-/* Gold Variant */
 .gold .iconCircle {
   color: var(--gold-accent);
   background: rgba(245, 158, 11, 0.12);
@@ -53,7 +51,6 @@
   background: linear-gradient(90deg, #f59e0b, transparent);
 }
 
-/* Cyan Variant */
 .cyan .iconCircle {
   color: var(--cyan-accent);
   background: rgba(6, 182, 212, 0.12);
@@ -62,7 +59,6 @@
   background: linear-gradient(90deg, #06b6d4, transparent);
 }
 
-/* Purple Variant */
 .purple .iconCircle {
   color: var(--purple-accent);
   background: rgba(139, 92, 246, 0.12);

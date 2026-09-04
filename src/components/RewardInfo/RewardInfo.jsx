@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, ArrowRightLeft, Landmark, CheckCircle, HelpCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Eye, ArrowRightLeft, Landmark, CheckCircle, ShieldCheck } from 'lucide-react';
 import { formatVEs, veToUSD, veToINR } from '../../utils/formatters';
 import styles from './RewardInfo.module.css';
 
@@ -39,7 +39,6 @@ export default function RewardInfo() {
   return (
     <section id="how-it-works" className={styles.rewardInfoSection}>
       <div className="container-fluid px-lg-5 px-3">
-        {/* Section Header */}
         <div className={styles.sectionHeader}>
           <div className="d-flex align-items-center gap-2 mb-2">
             <ShieldCheck size={18} className="text-success" />
@@ -53,7 +52,6 @@ export default function RewardInfo() {
           </p>
         </div>
 
-        {/* 3 Steps Row */}
         <div className="row g-4 mb-4">
           {steps.map((step) => {
             const Icon = step.icon;
@@ -82,7 +80,6 @@ export default function RewardInfo() {
           })}
         </div>
 
-        {/* Interactive Conversion & Withdrawal Calculator Banner */}
         <div className={`glass-panel ${styles.calcBanner}`}>
           <div className="row align-items-center g-4">
             <div className="col-lg-7">
@@ -94,7 +91,6 @@ export default function RewardInfo() {
                 Adjust the token amount below to calculate your guaranteed cashout value in USD and INR.
               </p>
 
-              {/* Slider */}
               <div className={styles.sliderWrap}>
                 <div className="d-flex justify-content-between text-muted small mb-2">
                   <span>500 VEs (Min. Payout)</span>

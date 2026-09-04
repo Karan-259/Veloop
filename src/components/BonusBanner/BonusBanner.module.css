@@ -1,7 +1,3 @@
-.bonusBannerWrapper {
-  margin: 1.5rem 0 2rem;
-}
-
 .bannerInner {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(239, 68, 68, 0.12) 50%, rgba(139, 92, 246, 0.12) 100%);
   border: 1px solid rgba(245, 158, 11, 0.35);
@@ -87,34 +83,15 @@
   margin-bottom: 0;
   line-height: 1.5;
 }
-
-.rightGroup {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.timerBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .timerLabel {
   font-size: 0.72rem;
   color: var(--text-muted);
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0.2rem;
-  display: flex;
-  align-items: center;
 }
 
 .timeDigits {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.15rem;

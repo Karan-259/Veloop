@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Coins, Volume2, VolumeX, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
+import { Coins, Volume2, VolumeX} from 'lucide-react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import { soundManager } from '../../utils/soundEffects';
@@ -18,7 +18,6 @@ export default function Navbar({ lifetimeEarnings}) {
     <header className={styles.navbarWrapper}>
       <div className="container-fluid px-lg-5 px-3">
         <div className={styles.navbarInner}>
-          {/* Logo & Brand */}
           <div className={styles.brandGroup}>
             <img
               src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXx2vUtBV7HlF-xDMeeujJZdxtriaqVT4RPaDN5iup0A&s=10i'
@@ -33,11 +32,7 @@ export default function Navbar({ lifetimeEarnings}) {
             </div>
           </div>
 
-          
-
-          {/* Right Group: Audio toggle, Tier, Balance Pill */}
           <div className={styles.rightGroup}>
-            {/* Audio Toggle */}
             <button
               onClick={handleToggleSound}
               className={styles.soundButton}
@@ -48,8 +43,6 @@ export default function Navbar({ lifetimeEarnings}) {
             </button>
 
             
-
-            {/* Live Wallet Pill */}
             <div className={styles.walletPill}>
               <div className={styles.walletIconWrap}>
                 <Coins size={18} className="text-warning" />

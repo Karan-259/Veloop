@@ -102,7 +102,6 @@
   border-color: var(--border-medium);
 }
 
-/* Filter Bar */
 .filterBar {
   display: flex;
   align-items: center;
@@ -191,7 +190,6 @@
   color: #fff;
 }
 
-/* Footer */
 .pageFooter {
   margin-top: auto;
   border-top: 1px solid var(--border-subtle);

@@ -16,7 +16,6 @@ export default function HeroSection({
   const animatedToday = useAnimatedCounter(todayEarnings);
   const progressPercent = Math.min(Math.round((todayEarnings / dailyGoal) * 100), 100);
 
-  // SVG circular progress calculation
   const radius = 38;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progressPercent / 100) * circumference;
@@ -25,7 +24,6 @@ export default function HeroSection({
     <section className={styles.heroSection}>
       <div className="container-fluid px-lg-5 px-3">
         <div className="row align-items-center g-4">
-          {/* Left Column: Headline & Value Proposition */}
           <div className="col-lg-7">
             <div className={styles.badgeRow}>
               <span className={styles.liveBadge}>
@@ -48,7 +46,6 @@ export default function HeroSection({
               and withdraw seamlessly to your verified bank account.
             </p>
 
-            {/* Quick feature pills */}
             <div className={styles.featurePills}>
               <div className={styles.pillItem}>
                 <Zap size={14} className="text-warning" />
@@ -64,7 +61,6 @@ export default function HeroSection({
               </div>
             </div>
 
-            {/* CTAs */}
             <div className={styles.ctaGroup}>
               <button onClick={onExploreClick} className={styles.primaryCta}>
                 <PlayCircle size={20} />
@@ -77,7 +73,6 @@ export default function HeroSection({
             </div>
           </div>
 
-          {/* Right Column: Interactive Daily Progress Widget Card */}
           <div className="col-lg-5">
             <div className={`glass-panel ${styles.progressCard}`}>
               <div className={styles.progressCardHeader}>
@@ -90,11 +85,9 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Progress Ring & Value display */}
               <div className={styles.progressRingRow}>
                 <div className={styles.svgRingWrap}>
                   <svg width="100" height="100" viewBox="0 0 100 100">
-                    {/* Background ring */}
                     <circle
                       cx="50"
                       cy="50"
@@ -103,7 +96,6 @@ export default function HeroSection({
                       strokeWidth="8"
                       fill="transparent"
                     />
-                    {/* Active ring */}
                     <circle
                       cx="50"
                       cy="50"
@@ -140,7 +132,6 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Mini Stats Bar inside Hero */}
               <div className={styles.miniStatsGrid}>
                 <div className={styles.miniStatItem}>
                   <span className={styles.miniLabel}>Available Today</span>

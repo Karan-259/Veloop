@@ -1,4 +1,4 @@
-// Web Audio API procedural audio synthesizer for premium haptic/audio feedback
+
 class SoundEffects {
   constructor() {
     this.ctx = null;
@@ -42,7 +42,6 @@ class SoundEffects {
       osc.start();
       osc.stop(this.ctx.currentTime + 0.05);
     } catch (e) {
-      // Graceful fallback if audio is blocked
     }
   }
 
@@ -53,7 +52,7 @@ class SoundEffects {
       if (!this.ctx) return;
       if (this.ctx.state === 'suspended') this.ctx.resume();
 
-      const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6 arpeggio
+      const notes = [523.25, 659.25, 783.99, 1046.5];
       notes.forEach((freq, idx) => {
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
@@ -71,7 +70,6 @@ class SoundEffects {
         osc.stop(this.ctx.currentTime + idx * 0.08 + 0.35);
       });
     } catch (e) {
-      // Graceful fallback
     }
   }
 
@@ -96,7 +94,6 @@ class SoundEffects {
       osc.start();
       osc.stop(this.ctx.currentTime + 0.03);
     } catch (e) {
-      // Ignore
     }
   }
 }

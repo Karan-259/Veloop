@@ -116,7 +116,6 @@
   align-items: center;
 }
 
-/* Calculator Banner */
 .calcBanner {
   padding: 2rem;
   background: linear-gradient(135deg, rgba(17, 26, 46, 0.85) 0%, rgba(10, 16, 30, 0.95) 100%);
@@ -156,7 +155,6 @@
   border-radius: 3px;
   background: #1e293b;
   outline: none;
-  -webkit-appearance: none;
   cursor: pointer;
 }
 

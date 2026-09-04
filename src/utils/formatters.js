@@ -1,4 +1,3 @@
-// Formatting helpers for VEs (VELOOP Earn Tokens) and fiat currency conversions
 
 export const formatVEs = (amount) => {
   if (amount === undefined || amount === null) return '0';

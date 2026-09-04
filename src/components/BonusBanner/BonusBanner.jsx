@@ -23,7 +23,6 @@ export default function BonusBanner({ onClaimBonus }) {
     <div className={styles.bonusBannerWrapper}>
       <div className="container-fluid px-lg-5 px-3">
         <div className={styles.bannerInner}>
-          {/* Left info */}
           <div className={styles.leftGroup}>
             <div className={styles.fireIconWrap}>
               <Flame size={24} className="text-warning" />
@@ -40,11 +39,8 @@ export default function BonusBanner({ onClaimBonus }) {
               <p className={styles.bannerDesc}>{BONUS_PROMO.description}</p>
             </div>
           </div>
-
-          {/* Right group: Timer + Action CTA */}
-          <div className={styles.rightGroup}>
-            {/* Live Timer Countdown */}
-            <div className={styles.timerBlock}>
+          <div>
+            <div>
               <span className={styles.timerLabel}>
                 <Clock size={12} className="me-1" /> Ends in:
               </span>
@@ -57,7 +53,6 @@ export default function BonusBanner({ onClaimBonus }) {
               </div>
             </div>
 
-            {/* CTA button */}
             <button onClick={onClaimBonus} className={styles.claimButton}>
               <Gift size={16} />
               <span>Unlock +{BONUS_PROMO.bonusVE} VEs Bonus</span>

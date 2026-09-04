@@ -9,12 +9,11 @@ export function useAdWatch() {
   const [activeAd, setActiveAd] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all');
-  const [statusFilter, setStatusFilter] = useState('all'); // all, available, completed
+  const [statusFilter, setStatusFilter] = useState('all'); 
   const [searchQuery, setSearchQuery] = useState('');
   const [timeline, setTimeline] = useState(INITIAL_EARNINGS_TIMELINE);
   const [lastEarnedReward, setLastEarnedReward] = useState(null);
 
-  // Trigger celebratory confetti effect
   const triggerConfetti = () => {
     confetti({
       particleCount: 90,
@@ -39,12 +38,10 @@ export function useAdWatch() {
     const targetAd = ads.find((a) => a.id === adId);
     if (!targetAd) return;
 
-    // Update ad status to completed
     setAds((prev) =>
       prev.map((item) => (item.id === adId ? { ...item, status: 'completed' } : item))
     );
 
-    // Update user balance and metrics
     const earnedAmount = targetAd.reward;
     setUserMetrics((prev) => ({
       ...prev,
@@ -55,7 +52,6 @@ export function useAdWatch() {
       availableAdsCount: Math.max(0, prev.availableAdsCount - 1)
     }));
 
-    // Add entry to timeline
     const newEntry = {
       id: `earn-${Date.now()}`,
       adTitle: targetAd.title,
@@ -65,7 +61,6 @@ export function useAdWatch() {
     };
     setTimeline((prev) => [newEntry, ...prev]);
 
-    // Play fanfare and trigger confetti
     soundManager.playRewardFanfare();
     triggerConfetti();
     setLastEarnedReward(earnedAmount);
@@ -81,21 +76,19 @@ export function useAdWatch() {
     setLastEarnedReward(null);
   };
 
-  // Filtered ads list
   const filteredAds = useMemo(() => {
     return ads.filter((ad) => {
-      // Category filter
       if (activeCategory === 'high-yield' && ad.badgeVariant !== 'gold') return false;
       if (activeCategory === 'quick' && ad.duration > 20) return false;
       if (activeCategory !== 'all' && activeCategory !== 'high-yield' && activeCategory !== 'quick') {
         if (ad.category !== activeCategory) return false;
       }
 
-      // Status filter
+      
       if (statusFilter === 'available' && ad.status !== 'available') return false;
       if (statusFilter === 'completed' && ad.status !== 'completed') return false;
 
-      // Search
+      
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const matchesTitle = ad.title.toLowerCase().includes(q);

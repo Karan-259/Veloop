@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchX, CheckCircle, RotateCcw, Sparkles } from 'lucide-react';
+import { SearchX, RotateCcw, Sparkles } from 'lucide-react';
 import styles from './EmptyState.module.css';
 
 export default function EmptyState({ type = 'no_ads', onResetFilters, onResetAllAds }) {
