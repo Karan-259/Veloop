@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Coins, Volume2, VolumeX} from 'lucide-react';
+import {  Volume2, VolumeX} from 'lucide-react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import { soundManager } from '../../utils/soundEffects';
@@ -7,12 +7,6 @@ import styles from './Navbar.module.css';
 
 export default function Navbar({ lifetimeEarnings}) {
   const animatedLifetime = useAnimatedCounter(lifetimeEarnings);
-  const [isMuted, setIsMuted] = useState(false);
-
-  const handleToggleSound = () => {
-    const muted = soundManager.toggleMute();
-    setIsMuted(muted);
-  };
 
   return (
     <header className={styles.navbarWrapper}>
@@ -33,26 +27,16 @@ export default function Navbar({ lifetimeEarnings}) {
           </div>
 
           <div className={styles.rightGroup}>
-            <button
-              onClick={handleToggleSound}
-              className={styles.soundButton}
-              title={isMuted ? 'Unmute Sound Effects' : 'Mute Sound Effects'}
-              aria-label="Toggle Sound"
-            >
-              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-            </button>
-
-            
             <div className={styles.walletPill}>
-              <div className={styles.walletIconWrap}>
-                <Coins size={18} className="text-warning" />
+              <div>
+                <img src="src/assets/images/vecoin.png" alt="" height={30} />
               </div>
               <div className={styles.walletDetails}>
                 <div className={styles.walletBalance}>
                   <strong>{formatVEs(animatedLifetime)}</strong> <span className={styles.tokenUnit}>VEs</span>
                 </div>
                 <div className={styles.fiatEquiv}>
-                  ≈ {veToUSD(animatedLifetime)}
+                  = {veToUSD(animatedLifetime)}
                 </div>
               </div>
             </div>

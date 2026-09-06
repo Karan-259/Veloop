@@ -22,7 +22,7 @@ export default function StatsSection({
       id: 'today',
       title: "Today's Earnings",
       value: `${formatVEs(animatedToday)} VEs`,
-      subvalue: `≈ ${veToUSD(todayEarnings)}`,
+      subvalue: `= ${veToUSD(todayEarnings)}`,
       trend: '+18% today',
       icon: TrendingUp,
       accentColor: 'emerald'
@@ -31,7 +31,7 @@ export default function StatsSection({
       id: 'lifetime',
       title: 'Total Lifetime VEs',
       value: `${formatVEs(animatedLifetime)} VEs`,
-      subvalue: `≈ ${veToUSD(lifetimeEarnings)}`,
+      subvalue: `= ${veToUSD(lifetimeEarnings)}`,
       trend: 'Lifetime Balance',
       icon: Wallet,
       accentColor: 'gold'
@@ -40,7 +40,7 @@ export default function StatsSection({
       id: 'weekly',
       title: 'Weekly Earnings',
       value: `${formatVEs(animatedWeekly)} VEs`,
-      subvalue: `≈ ${veToUSD(weeklyEarnings)}`,
+      subvalue: `= ${veToUSD(weeklyEarnings)}`,
       trend: 'Last 7 Days',
       icon: CalendarDays,
       accentColor: 'cyan'
@@ -82,7 +82,7 @@ export default function StatsSection({
                   </div>
 
                   <div className={styles.statMainValue}>
-                    {item.value}
+                    {item.value} 
                   </div>
 
                   <div className={styles.statFooter}>

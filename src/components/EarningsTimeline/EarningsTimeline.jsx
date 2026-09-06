@@ -8,10 +8,10 @@ export default function EarningsTimeline({ timeline }) {
     <div className={`glass-panel ${styles.timelineCard}`}>
       <div className={styles.timelineHeader}>
         <div className="d-flex align-items-center gap-2">
-          <History size={18} className="text-cyan" />
+          <History size={18}/>
           <h3 className={styles.timelineTitle}>Recent Earnings Activity</h3>
         </div>
-        <span className={styles.livePulseBadge}>Live Ledger</span>
+        <span className={styles.livePulseBadge}>  Live Ledger</span>
       </div>
 
       <div className={styles.timelineList}>
@@ -21,7 +21,7 @@ export default function EarningsTimeline({ timeline }) {
               {item.type === 'streak_bonus' ? (
                 <Flame size={14} className="text-warning" />
               ) : (
-                <Sparkles size={14} className="text-success" />
+                <Sparkles size={14} className="text-primary" />
               )}
             </div>
 
@@ -32,7 +32,6 @@ export default function EarningsTimeline({ timeline }) {
               </div>
               <div className={styles.itemMetaRow}>
                 <span className={styles.itemTime}>{item.time}</span>
-                <span className={styles.itemFiat}>≈ {veToUSD(item.amount)}</span>
               </div>
             </div>
           </div>

@@ -40,10 +40,6 @@ export default function RewardInfo() {
     <section id="how-it-works" className={styles.rewardInfoSection}>
       <div className="container-fluid px-lg-5 px-3">
         <div className={styles.sectionHeader}>
-          <div className="d-flex align-items-center gap-2 mb-2">
-            <ShieldCheck size={18} className="text-success" />
-            <span className={styles.sectionSubtitle}>TRANSPARENT REWARD ECOSYSTEM</span>
-          </div>
           <h2 className={styles.sectionTitle}>
             How Earning & Bank Withdrawals Work
           </h2>
@@ -84,7 +80,7 @@ export default function RewardInfo() {
           <div className="row align-items-center g-4">
             <div className="col-lg-7">
               <div className="d-flex align-items-center gap-2 mb-2">
-                <span className={styles.calcTag}>INTERACTIVE CONVERSION CALCULATOR</span>
+                <span className={styles.calcTag}>CONVERSION CALCULATOR</span>
               </div>
               <h3 className={styles.calcHeading}>See what your VEs are worth in Cash</h3>
               <p className={styles.calcDesc}>
@@ -93,9 +89,7 @@ export default function RewardInfo() {
 
               <div className={styles.sliderWrap}>
                 <div className="d-flex justify-content-between text-muted small mb-2">
-                  <span>500 VEs (Min. Payout)</span>
                   <span className="text-white font-monospace">{formatVEs(calculatorAmount)} VEs</span>
-                  <span>10,000 VEs</span>
                 </div>
                 <input
                   type="range"
@@ -113,8 +107,8 @@ export default function RewardInfo() {
               <div className={styles.payoutSummaryBox}>
                 <span className={styles.payoutLabel}>Guaranteed Bank Payout:</span>
                 <div className={styles.payoutValueGroup}>
-                  <div className={styles.payoutUSD}>{veToUSD(calculatorAmount)} <span className="text-muted fs-6">USD</span></div>
-                  <div className={styles.payoutINR}>≈ {veToINR(calculatorAmount)} INR</div>
+                  <div className={styles.payoutUSD}>{veToUSD(calculatorAmount)}</div>
+                  <div className={styles.payoutINR}>= {veToINR(calculatorAmount)} INR</div>
                 </div>
                 <div className={styles.payoutMeta}>
                   <span>⚡ Payout speed: <strong>Instant - 2 Hours</strong></span>

@@ -18,7 +18,7 @@
   width: 100%;
   max-width: 760px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 30px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 30px #2563EB;
   display: flex;
   flex-direction: column;
   animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -48,7 +48,7 @@
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--primary-light);
+  color: #7C3AED;
   background: rgba(16, 185, 129, 0.15);
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
@@ -57,31 +57,6 @@
 .categoryBadge {
   font-size: 0.72rem;
   color: var(--text-secondary);
-}
-
-.testModeButton {
-  background: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  color: var(--gold-accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.testModeButton:hover {
-  background: rgba(245, 158, 11, 0.25);
-}
-
-.testModeActive {
-  background: #f59e0b;
-  color: #030712;
-  border-color: #f59e0b;
 }
 
 .closeBtn {
@@ -106,7 +81,7 @@
 .playerContainer {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 350px;
   background: #000;
   overflow: hidden;
   display: flex;
@@ -126,55 +101,32 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(6, 10, 20, 0.95) 100%);
+  pointer-events: none;
 }
 
-.progressBarWrap {
+.centerPlayBtn {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  z-index: 10;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -5px);
+  width: 84px;
+  height: 84px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(5, 7, 18, 0.9);
+  color: #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-
-.progressBarFill {
-  height: 100%;
-  background: linear-gradient(90deg, #10b981 0%, #06b6d4 100%);
-  transition: width 0.3s ease-out;
-  box-shadow: 0 0 10px #10b981;
+.centerPlayBtn:hover {
+  transform: translate(-50%, -5px) scale(1.08);
+  background: rgba(7, 9, 22, 0.98);
+  box-shadow:0 0 30px rgba(168, 85, 247, 0.25);
 }
-
-.centerBrandInfo {
-  position: relative;
-  z-index: 5;
-  padding: 1.5rem;
-  max-width: 580px;
-}
-
-.sponsorNameOverlay {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary-light);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.adOverlayTitle {
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-.adOverlayDesc {
-  font-size: 0.9rem;
-  color: #e2e8f0;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: 0;
+.centerPlayBtn:active {
+  transform: translate(-50%, -5px) scale(0.96);
 }
 
 .bottomControls {
@@ -186,28 +138,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(6, 10, 20, 0.6);
-  backdrop-filter: blur(8px);
-  z-index: 6;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+
 .playPauseBtn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  background: none;
+  color: #7C3AED;
+  border: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition-smooth);
-}
-
-.playPauseBtn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.25);
 }
 
 .timerBadge {
@@ -218,9 +160,8 @@
 }
 
 .potentialRewardPill {
-  background: rgba(245, 158, 11, 0.18);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  color: #fbbf24;
+  border: 1px solid #a855f7;
+  color: #fff;
   font-size: 0.82rem;
   font-weight: 700;
   padding: 0.35rem 0.8rem;
@@ -229,14 +170,53 @@
   align-items: center;
   gap: 0.4rem;
 }
+.controlBtn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
 
+.controlBtn:hover {
+  color: #a855f7;
+  transform: scale(1.08);
+}
+
+.controlBtn:active {
+  transform: scale(0.95);
+}
+
+.progressBarWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 10;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  transition: width 0.3s ease-out;
+}
+
+/* Modal Footer */
 .modalFooter {
-  padding: 1.25rem 1.5rem;
+  padding: 1.15rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   background: #090e1b;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
 }
 
@@ -246,30 +226,139 @@
   gap: 0.75rem;
 }
 
-.waitingNotice {
-  display: flex;
-  align-items: center;
+.trustTitle {
+  color: #ffffff;
+  font-weight: 700;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  line-height: 1.2;
 }
 
+.trustSubtitle {
+  color: #94a3b8;
+  font-size: 0.73rem;
+  margin-top: 0.15rem;
+}
+
+/* Claim Button */
 .claimRewardButton {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #fff;
+  background: #a855f7;
+  color: #ffffff;
   border: none;
-  font-weight: 800;
-  font-size: 1rem;
-  padding: 0.85rem 1.8rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
-  animation: pulseGlow 2s infinite;
-  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4), 0 0 20px rgba(168, 85, 247, 0.25);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
-.claimRewardButton:hover {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+.claimRewardButton:hover:not(:disabled) {
+  background: #9333ea;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6), 0 0 25px rgba(168, 85, 247, 0.45);
   transform: translateY(-2px);
+}
+
+.claimRewardButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.claimRewardButton:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.claimRewardButtonDisabled {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: not-allowed;
+}
+
+/* Completed Overlay */
+.completedOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.completedCheckIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.15);
+  border: 2px solid #a855f7;
+  color: #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.completedTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.completedSubtitle {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  margin-bottom: 1.25rem;
+}
+
+.completedSubtitle strong {
+  color: #c084fc;
+}
+
+/* Quick Test Mode Button */
+.testModeButton {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.testModeButton:hover {
+  background: rgba(168, 85, 247, 0.25);
+  color: #ffffff;
+}
+
+.testModeActive {
+  background: #a855f7;
+  color: #ffffff;
+  border-color: #a855f7;
 }

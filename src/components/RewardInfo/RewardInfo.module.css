@@ -6,13 +6,6 @@
   margin-bottom: 2rem;
 }
 
-.sectionSubtitle {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  font-weight: 800;
-  color: var(--primary-light);
-}
-
 .sectionTitle {
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 800;
@@ -42,7 +35,7 @@
 
 .infoCard:hover {
   transform: translateY(-4px);
-  border-color: var(--border-medium);
+  border-color: #7C3AED;
   box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.7);
 }
 
@@ -108,8 +101,8 @@
 .pillBadge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  background: #7C3AED;
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   display: inline-flex;
@@ -119,7 +112,7 @@
 .calcBanner {
   padding: 2rem;
   background: linear-gradient(135deg, rgba(17, 26, 46, 0.85) 0%, rgba(10, 16, 30, 0.95) 100%);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid black;
   border-radius: 20px;
 }
 
@@ -127,8 +120,8 @@
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--primary-light);
-  background: rgba(16, 185, 129, 0.15);
+  color: #fff;
+  background: #7C3AED;
   padding: 0.25rem 0.65rem;
   border-radius: 4px;
 }
@@ -202,7 +195,7 @@
 
 .payoutINR {
   font-size: 1.05rem;
-  color: var(--cyan-accent);
+  color: #7C3AED;
   font-weight: 700;
   margin-top: 0.25rem;
 }
@@ -218,5 +211,5 @@
 }
 
 .payoutMeta strong {
-  color: var(--primary-light);
+  color: #fff;
 }

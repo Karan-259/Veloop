@@ -89,14 +89,7 @@ export default function WatchAds() {
         <div className="container-fluid px-lg-5 px-3">
           <div className={styles.inventoryHeader}>
             <div>
-              <div className="d-flex align-items-center gap-2 mb-1">
-                <span className={styles.sectionBadge}>VERIFIED CAMPAIGNS</span>
-                <span className="status-dot available" />
-              </div>
               <h2 className={styles.inventoryTitle}>Available Advertisements</h2>
-              <p className={styles.inventorySubtitle}>
-                Select an advertisement below to start streaming. Complete the session to receive guaranteed VEs.
-              </p>
             </div>
 
             <div className={styles.headerActionGroup}>
@@ -202,13 +195,10 @@ export default function WatchAds() {
           </div>
         </div>
       </footer>
-
-      <AdPlayerModal
-        ad={activeAd}
+      <AdPlayerModal ad={activeAd}
         isOpen={isModalOpen}
         onClose={closeModal}
-        onComplete={completeWatching}
-      />
+        onComplete={completeWatching}/>
     </div>
   );
 }

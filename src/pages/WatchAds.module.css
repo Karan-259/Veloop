@@ -17,26 +17,11 @@
   flex-wrap: wrap;
 }
 
-.sectionBadge {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--primary-light);
-  text-transform: uppercase;
-}
-
 .inventoryTitle {
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.35rem;
-}
-
-.inventorySubtitle {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 0;
 }
 
 .headerActionGroup {
@@ -109,7 +94,7 @@
   gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid #7C3AED;
   padding-bottom: 1.25rem;
 }
 
@@ -141,8 +126,7 @@
 }
 
 .catTabActive {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: rgba(16, 185, 129, 0.5);
+  border-color: #7C3AED;
   color: #fff;
 }
 
@@ -155,8 +139,8 @@
 }
 
 .catTabActive .tabCount {
-  color: var(--primary-light);
-  background: rgba(16, 185, 129, 0.25);
+  color: #fff;
+  background: #7C3AED;
 }
 
 .statusPills {

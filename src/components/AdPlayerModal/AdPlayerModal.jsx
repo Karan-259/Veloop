@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Play, Pause, CheckCircle2, Sparkles, ShieldCheck} from 'lucide-react';
+import { X, Play, Pause, CheckCircle2, Sparkles, ShieldCheck, VolumeX, Volume2 } from 'lucide-react';
 import { veToUSD } from '../../utils/formatters';
 import styles from './AdPlayerModal.module.css';
 
@@ -7,9 +7,10 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
   if (!isOpen || !ad) return null;
 
   const [isFastTestMode, setIsFastTestMode] = useState(false);
-  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration, 15); 
+  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration);
   const [secondsLeft, setSecondsLeft] = useState(totalDuration);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
 
@@ -18,7 +19,7 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
     setIsPlaying(true);
     setIsFinished(false);
     setIsClaiming(false);
-  }, [ad, isFastTestMode]);
+  }, [ad]);
 
   useEffect(() => {
     if (!isPlaying || isFinished) return;
@@ -47,9 +48,12 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
   );
 
   const handleClaim = () => {
+    if (isClaiming) return;
     setIsClaiming(true);
     setTimeout(() => {
-      onComplete(ad.id);
+      if (onComplete) {
+        onComplete(ad.id);
+      }
     }, 300);
   };
 
@@ -58,7 +62,7 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <div className="d-flex align-items-center gap-2">
-            <span className={styles.sponsorBadge}>SPONSORED ADVERTISEMENT</span>
+            <span className={styles.sponsorBadge}>ADVERTISEMENT</span>
             <span className={styles.categoryBadge}>{ad.categoryLabel}</span>
           </div>
 
@@ -72,19 +76,37 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
         <div className={styles.playerContainer}>
           <img src={ad.image} alt={ad.title} className={styles.adHeroMedia} />
           <div className={styles.playerOverlay} />
+          {!isPlaying && !isFinished && (
+            <button
+              onClick={() => setIsPlaying(true)}
+              className={styles.centerPlayBtn}
+              aria-label="Play Ad"
+            >
+              <Play size={30} />
+            </button>
+          )}
 
-          <div className={styles.progressBarWrap}>
-            <div
-              className={styles.progressBarFill}
-              style={{ width: `${progressPercent}%` }}
-            />
-          </div>
+          {isFinished && (
+            <div className={styles.completedOverlay}>
+              <div className={styles.completedCheckIcon}>
+                <CheckCircle2 size={30} />
+              </div>
+              <div className={styles.completedTitle}>Ad Completed!</div>
+              <div className={styles.completedSubtitle}>
+                You earned <strong>+{ad.reward} VEs</strong> ({veToUSD(ad.reward)})
+              </div>
+              <button
+                type="button"
+                onClick={handleClaim}
+                disabled={isClaiming}
+                className={styles.claimRewardButton}
+              >
+                <Sparkles size={18} />
+                <span>{isClaiming ? 'Crediting VEs...' : `Claim +${ad.reward} VEs Reward`}</span>
+              </button>
+            </div>
+          )}
 
-          <div className={styles.centerBrandInfo}>
-            <span className={styles.sponsorNameOverlay}>{ad.sponsor}</span>
-            <h2 className={styles.adOverlayTitle}>{ad.title}</h2>
-            <p className={styles.adOverlayDesc}>{ad.description}</p>
-          </div>
           <div className={styles.bottomControls}>
             <div className="d-flex align-items-center gap-3">
               <button
@@ -92,7 +114,7 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
                 className={styles.playPauseBtn}
                 disabled={isFinished}
               >
-                {isPlaying && !isFinished ? <Pause size={18} /> : <Play size={18} fill="currentColor" />}
+                {isPlaying && !isFinished ? <Pause size={18} /> : <Play size={18} />}
               </button>
               <div className={styles.timerBadge}>
                 {isFinished ? (
@@ -100,40 +122,67 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
                     <CheckCircle2 size={15} /> Ad Completed
                   </span>
                 ) : (
-                  <span>00:{String(secondsLeft).padStart(2, '0')} remaining</span>
+                  <span>00:{String(secondsLeft).padStart(2, '0')}</span>
                 )}
               </div>
+              <button
+                className={styles.controlBtn}
+                onClick={() => setIsMuted(!isMuted)}
+                aria-label={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? (
+                  <VolumeX size={18} />
+                ) : (
+                  <Volume2 size={18} />
+                )}
+              </button>
             </div>
 
             <div className={styles.potentialRewardPill}>
               <Sparkles size={14} className="text-warning" />
               <span>+{ad.reward} VEs ({veToUSD(ad.reward)})</span>
             </div>
+            <div className={styles.progressBarWrap}>
+              <div
+                className={styles.progressBarFill}
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
           </div>
         </div>
+        
         <div className={styles.modalFooter}>
           <div className={styles.trustGuarantee}>
-            <ShieldCheck size={18} className="text-success" />
+            <ShieldCheck size={20} className="text-success" />
             <div>
-              <div className="text-white fw-bold small">Verified Viewing Session</div>
-              <div className="text-muted" style={{ fontSize: '0.72rem' }}>Tokens will be deposited directly to your VELOOP balance</div>
+              <div className={styles.trustTitle}>Verified Viewing Session</div>
+              <div className={styles.trustSubtitle}>
+                {isFinished
+                  ? 'Tokens ready to deposit directly to your VELOOP balance'
+                  : 'Tokens will be deposited directly to your VELOOP balance'}
+              </div>
             </div>
           </div>
 
           {isFinished ? (
             <button
+              type="button"
               onClick={handleClaim}
               disabled={isClaiming}
               className={styles.claimRewardButton}
             >
-              <Sparkles size={20} className="me-1" />
+              <Sparkles size={18} />
               <span>{isClaiming ? 'Crediting VEs...' : `Claim +${ad.reward} VEs Reward`}</span>
             </button>
           ) : (
-            <div className={styles.waitingNotice}>
-              <div className="spinner-border spinner-border-sm text-success me-2" role="status" />
-              <span>Watch until the countdown ends to unlock reward...</span>
-            </div>
+            <button
+              type="button"
+              disabled
+              className={styles.claimRewardButtonDisabled}
+            >
+              <Sparkles size={18} />
+              <span>Claim +{ad.reward} VEs (00:{String(secondsLeft).padStart(2, '0')})</span>
+            </button>
           )}
         </div>
       </div>

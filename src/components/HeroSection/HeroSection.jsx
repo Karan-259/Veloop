@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayCircle, Flame, CheckCircle2, Award, Zap, ShieldCheck } from 'lucide-react';
+import { PlayCircle, Flame, CheckCircle2, Award, Zap, ShieldCheck, CircleAlert } from 'lucide-react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import styles from './HeroSection.module.css';
@@ -28,7 +28,7 @@ export default function HeroSection({
             <div className={styles.badgeRow}>
               <span className={styles.liveBadge}>
                 <span className="status-dot available me-2" />
-                Live Earning Pool Active
+                Active
               </span>
               <span className={styles.streakBadge}>
                 <Flame size={14} className="text-warning" />
@@ -39,32 +39,12 @@ export default function HeroSection({
             <h1 className={styles.title}>
               Watch Ads & Earn <span className={styles.titleGradient}>Real Cash</span>
             </h1>
-
-            <p className={styles.description}>
-              Transform your spare moments into verified <strong>VELOOP Earn Tokens (VEs)</strong>.
-              Watch curated partner campaigns from top global tech & fintech brands, build your daily streak,
-              and withdraw seamlessly to your verified bank account.
-            </p>
-
-            <div className={styles.featurePills}>
-              <div className={styles.pillItem}>
-                <Zap size={14} className="text-warning" />
-                <span>Instant VE Credits</span>
-              </div>
-              <div className={styles.pillItem}>
-                <ShieldCheck size={14} className="text-info" />
-                <span>Bank-Grade Direct Payouts</span>
-              </div>
-              <div className={styles.pillItem}>
-                <Award size={14} className="text-success" />
-                <span>Verified Partners</span>
-              </div>
-            </div>
+            <br />
 
             <div className={styles.ctaGroup}>
               <button onClick={onExploreClick} className={styles.primaryCta}>
                 <PlayCircle size={20} />
-                <span>Start Watching Ads</span>
+                <span>Watch Ad Now</span>
               </button>
 
               <button onClick={onHowItWorksClick} className={styles.secondaryCta}>
@@ -81,7 +61,7 @@ export default function HeroSection({
                   <h3 className={styles.goalTitle}>Goal: {dailyGoal} VEs</h3>
                 </div>
                 <div className={styles.fiatEquivBadge}>
-                  ≈ {veToUSD(todayEarnings)} Earned
+                  {veToUSD(todayEarnings)} Earned
                 </div>
               </div>
 
@@ -110,8 +90,8 @@ export default function HeroSection({
                     />
                     <defs>
                       <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#10b981" />
-                        <stop offset="100%" stopColor="#06b6d4" />
+                        <stop offset="0%" stopColor="#2563EB" />
+                        <stop offset="100%" stopColor="#7C3AED" />
                       </linearGradient>
                     </defs>
                   </svg>
@@ -135,7 +115,10 @@ export default function HeroSection({
               <div className={styles.miniStatsGrid}>
                 <div className={styles.miniStatItem}>
                   <span className={styles.miniLabel}>Available Today</span>
-                  <strong className={styles.miniValueText}>{availableCount} Ads</strong>
+                  <div className="d-flex align-items-center gap-1">
+                    <CircleAlert size={14} className="text-warning" />
+                    <strong className={styles.miniValueText}>{availableCount} Ads</strong>
+                  </div>
                 </div>
                 <div className={styles.miniStatItem}>
                   <span className={styles.miniLabel}>Completed</span>

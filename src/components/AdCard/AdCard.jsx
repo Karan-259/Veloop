@@ -21,13 +21,7 @@ export default function AdCard({ ad, onWatchClick }) {
           className={styles.adImage}
           loading="lazy"
         />
-        <div className={styles.imageOverlay} />
-
         <div className={styles.topBadgeRow}>
-          <span>
-            
-          </span>
-
           <span className={styles.durationPill}>
             <Clock size={12} className="me-1" />
             {formatSeconds(ad.duration)}
@@ -49,22 +43,16 @@ export default function AdCard({ ad, onWatchClick }) {
 
       <div className={styles.cardBody}>
         <div className={styles.sponsorRow}>
-          <span className={styles.sponsorName}>{ad.sponsor}</span>
           <span className={styles.categoryTag}>{ad.categoryLabel}</span>
         </div>
 
         <h3 className={styles.adTitle}>{ad.title}</h3>
-        <p className={styles.adDesc}>{ad.description}</p>
-
         <div className={styles.rewardSummaryRow}>
           <div>
             <span className={styles.rewardSubtext}>Reward Payout</span>
             <div className={styles.veAmount}>
               +{ad.reward} <span className={styles.veUnit}>VEs</span>
             </div>
-          </div>
-          <div className={styles.fiatTag}>
-            ≈ {veToUSD(ad.reward)}
           </div>
         </div>
         <button
@@ -75,8 +63,8 @@ export default function AdCard({ ad, onWatchClick }) {
         >
           {isCompleted ? (
             <>
-              <Check size={18} className="me-1" />
-              <span>Reward Claimed (+{ad.reward} VEs)</span>
+              <Check size={18} className='me-1'/>
+              <span>Reward Claimed <br /> +{ad.reward} VEs</span>
             </>
           ) : (
             <>

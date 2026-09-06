@@ -53,7 +53,7 @@ export default function BonusBanner({ onClaimBonus }) {
               </div>
             </div>
 
-            <button onClick={onClaimBonus} className={styles.claimButton}>
+            <button onClick={onClaimBonus} className={styles.claimButton} >
               <Gift size={16} />
               <span>Unlock +{BONUS_PROMO.bonusVE} VEs Bonus</span>
               <ChevronRight size={16} />
