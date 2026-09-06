@@ -27,7 +27,7 @@ export default function Navbar({ lifetimeEarnings}) {
           <div className={styles.rightGroup}>
             <div className={styles.walletPill}>
               <div>
-                <img src="./src/assets/images/vecoin.png" alt="" height={30} />
+                <img src="../src/assets/images/vecoin.png" alt="" height={30} />
               </div>
               <div className={styles.walletDetails}>
                 <div className={styles.walletBalance}>
