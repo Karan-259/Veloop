@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayCircle, Flame, CheckCircle2, Award, Zap, ShieldCheck, CircleAlert } from 'lucide-react';
+import { PlayCircle, Flame, CheckCircle2,  CircleAlert } from 'lucide-react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import styles from './HeroSection.module.css';

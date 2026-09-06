@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Play, Check, Clock} from 'lucide-react';
-import { formatSeconds, veToUSD } from '../../utils/formatters';
+import { formatSeconds} from '../../utils/formatters';
 import styles from './AdCard.module.css';
 
 export default function AdCard({ ad, onWatchClick }) {

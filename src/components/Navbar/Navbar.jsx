@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import {  Volume2, VolumeX} from 'lucide-react';
+import React from 'react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
-import { soundManager } from '../../utils/soundEffects';
 import styles from './Navbar.module.css';
 
 export default function Navbar({ lifetimeEarnings}) {

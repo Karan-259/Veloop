@@ -1,6 +1,5 @@
 import React from 'react';
 import { History, Sparkles, Flame} from 'lucide-react';
-import { veToUSD } from '../../utils/formatters';
 import styles from './EarningsTimeline.module.css';
 
 export default function EarningsTimeline({ timeline }) {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, ArrowRightLeft, Landmark, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Eye, ArrowRightLeft, Landmark, CheckCircle } from 'lucide-react';
 import { formatVEs, veToUSD, veToINR } from '../../utils/formatters';
 import styles from './RewardInfo.module.css';
 
