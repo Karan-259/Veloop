@@ -12,7 +12,6 @@ This project is a complete from-scratch UI/UX redesign and redevelopment built w
 ### 1. Top Tier Brand Navbar & Wallet Bar
 - **Live VEs Balance**: Real-time animated counter tracking total accumulated tokens.
 - **Instant Fiat Valuation**: Auto-converting token display (`12,450 VEs ≈ $124.50 USD`).
-- **Audio Feedback Synthesizer**: Built-in procedural Web Audio API sound effects with a 1-click mute/unmute toggle.
 
 ### 2. Dynamic Hero & Daily Goal Tracker
 - **Compelling Value Proposition**: High-converting headline with verified partner assurance.
@@ -85,7 +84,8 @@ VELOOP/
 │   │       ├── ad-crypto.jpg
 │   │       ├── ad-gaming.jpg
 │   │       ├── ad-neobank.jpg
-│   │       └── ad-quantum.jpg
+            ├── ad-quantum.jpg
+│   │       └── vecoin.png
 │   ├── components/
 │   │   ├── Navbar/                
 │   │   │   ├── Navbar.jsx

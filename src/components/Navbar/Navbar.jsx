@@ -2,8 +2,7 @@ import React from 'react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import styles from './Navbar.module.css';
-import vecoin from '../../assets/images/vecoin.png'
-                // <img src="../src/assets/images/vecoin.png" alt="" height={30} />
+import  vecoin from '../../assets/images/vecoin.png'
 
 export default function Navbar({ lifetimeEarnings}) {
   const animatedLifetime = useAnimatedCounter(lifetimeEarnings);

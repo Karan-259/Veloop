@@ -16,9 +16,9 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
 
   useEffect(() => {
     setSecondsLeft(totalDuration);
-    setIsPlaying(true);
-    setIsFinished(false);
-    setIsClaiming(false);
+      setIsPlaying(true);
+      setIsFinished(false);
+      setIsClaiming(false);
   }, [ad]);
 
   useEffect(() => {
