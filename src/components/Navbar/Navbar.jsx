@@ -2,6 +2,8 @@ import React from 'react';
 import { formatVEs, veToUSD } from '../../utils/formatters';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import styles from './Navbar.module.css';
+import vecoin from '../../assets/images/vecoin.png'
+                // <img src="../src/assets/images/vecoin.png" alt="" height={30} />
 
 export default function Navbar({ lifetimeEarnings}) {
   const animatedLifetime = useAnimatedCounter(lifetimeEarnings);
@@ -27,7 +29,7 @@ export default function Navbar({ lifetimeEarnings}) {
           <div className={styles.rightGroup}>
             <div className={styles.walletPill}>
               <div>
-                <img src="../src/assets/images/vecoin.png" alt="" height={30} />
+                <img src={vecoin} alt="" height={30} />
               </div>
               <div className={styles.walletDetails}>
                 <div className={styles.walletBalance}>
