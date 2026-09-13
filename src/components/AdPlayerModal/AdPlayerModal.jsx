@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { X, Play, Pause, CheckCircle2, Sparkles, ShieldCheck, VolumeX, Volume2 } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { X, Play, Pause, CheckCircle2, Sparkles, ShieldCheck, VolumeX, Volume2, Zap } from 'lucide-react';
 import { veToUSD } from '../../utils/formatters';
 import styles from './AdPlayerModal.module.css';
 
@@ -7,19 +7,38 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
   if (!isOpen || !ad) return null;
 
   const [isFastTestMode, setIsFastTestMode] = useState(false);
-  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration);
+  const totalDuration = isFastTestMode ? 2 : Math.min(ad.duration || 15);
   const [secondsLeft, setSecondsLeft] = useState(totalDuration);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     setSecondsLeft(totalDuration);
-      setIsPlaying(true);
-      setIsFinished(false);
-      setIsClaiming(false);
-  }, [ad]);
+    setIsPlaying(true);
+    setIsFinished(false);
+    setIsClaiming(false);
+    setVideoError(false);
+  }, [ad, isFastTestMode]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isPlaying && !isFinished) {
+        videoRef.current.play().catch(() => { });
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isPlaying, isFinished]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
 
   useEffect(() => {
     if (!isPlaying || isFinished) return;
@@ -150,7 +169,7 @@ export default function AdPlayerModal({ ad, isOpen, onClose, onComplete }) {
             </div>
           </div>
         </div>
-        
+
         <div className={styles.modalFooter}>
           <div className={styles.trustGuarantee}>
             <ShieldCheck size={20} className="text-success" />

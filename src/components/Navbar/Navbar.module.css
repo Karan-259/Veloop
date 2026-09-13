@@ -1,13 +1,21 @@
+
 .navbarWrapper {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: var(--bg-glass-nav);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 0.85rem 0;
-  transition: var(--transition-smooth);
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbarWrapper.scrolled {
+  padding: 0.55rem 0;
+  background: rgba(4, 7, 15, 0.96);
+  border-bottom-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(139, 92, 246, 0.08);
 }
 
 .navbarInner {
@@ -20,129 +28,200 @@
 .brandGroup {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 
-.img {
-  width: 50px;
+.logoWrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  transform: rotate(0 deg);
-  transition: transform 0.1s linear;
-  animation: spinContinuous 3s linear infinite;
+  object-fit: cover;
+  animation: spinContinuous 5s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.logoRing {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  opacity: 0.5;
+  z-index: 0;
+  animation: spinContinuous 1s linear infinite reverse;
 }
 
 @keyframes spinContinuous {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-.logoSymbol {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: #030712;
-  letter-spacing: -0.05em;
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 
 .brandNameRow {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  line-height: 1.2;
+  gap: 0.45rem;
+  line-height: 1;
 }
 
 .brandName {
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: 0.02em;
-  background: linear-gradient(90deg, #2563EB,#7C3AED);
+  font-weight: 900;
+  font-size: 1.22rem;
+  letter-spacing: 0.04em;
+  background: var(--gradient-brand);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .brandTag {
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #fff;
-  border: 1px solid #7C3AED;
-  padding: 0.15rem 0.45rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  background: rgba(139, 92, 246, 0.12);
+  padding: 0.12rem 0.42rem;
   border-radius: 4px;
+  line-height: 1.4;
 }
 
-.bankStatusBadge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+.brandSub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-.bankStatusBadge strong {
-  color: var(--text-primary);
-}
-
+/* ── Right Group ── */
 .rightGroup {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
+  flex-wrap: nowrap;
 }
 
-
-.tierPill {
+.liveChip {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  color: var(--gold-accent);
-  padding: 0.45rem 0.85rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.3rem 0.7rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  letter-spacing: 0.04em;
 }
 
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  animation: dotBlink 2s ease-in-out infinite;
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+.todayPill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(79, 110, 247, 0.1);
+  border: 1px solid rgba(79, 110, 247, 0.22);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: #a5b4fc;
+}
+
+@media (max-width: 576px) {
+  .todayPill { display: none; }
+  .liveChip  { display: none; }
+}
+
+/* ── Wallet Pill ── */
 .walletPill {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.08));
-  border: 1px solid #7C3AED;
-  padding: 0.4rem 0.95rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(79, 110, 247, 0.15), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  padding: 0.45rem 1rem 0.45rem 0.6rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 20px rgba(139, 92, 246, 0.18);
+  transition: var(--transition-smooth);
+  cursor: default;
+}
+
+.walletPill:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 4px 25px rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.walletIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
 }
 
 .walletDetails {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  text-align: left;
 }
 
 .walletBalance {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   color: #fff;
-  line-height: 1.2;
-}
-
-.tokenUnit {
-  font-size: 0.75rem;
+  line-height: 1.15;
   font-weight: 700;
 }
 
-.fiatEquiv {
+.tokenUnit {
   font-size: 0.72rem;
-  color: #7C3AED;
   font-weight: 600;
+  color: #c4b5fd;
+}
+
+.fiatEquiv {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 0.05rem;
 }

@@ -61,7 +61,7 @@ export default function StatsSection({
       subvalue: 'Ready to watch',
       trend: 'Fresh inventory',
       icon: Clock,
-      accentColor: 'emerald'
+      accentColor: 'indigo'
     }
   ];
 
@@ -69,20 +69,23 @@ export default function StatsSection({
     <section className={styles.statsSection}>
       <div className="container-fluid px-lg-5 px-3">
         <div className="row g-3">
-          {statsList.map((item) => {
+          {statsList.map((item, idx) => {
             const IconComponent = item.icon;
             return (
               <div key={item.id} className="col-xl col-md-4 col-sm-6 col-12">
-                <div className={`${styles.statCard} ${styles[item.accentColor]}`}>
+                <div
+                  className={`${styles.statCard} ${styles[item.accentColor]}`}
+                  style={{ animationDelay: `${idx * 0.07}s` }}
+                >
                   <div className={styles.statHeader}>
                     <span className={styles.statTitle}>{item.title}</span>
                     <div className={styles.iconCircle}>
-                      <IconComponent size={18} />
+                      <IconComponent size={17} />
                     </div>
                   </div>
 
                   <div className={styles.statMainValue}>
-                    {item.value} 
+                    {item.value}
                   </div>
 
                   <div className={styles.statFooter}>

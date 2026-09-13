@@ -13,6 +13,7 @@ export function useAdWatch() {
   const [searchQuery, setSearchQuery] = useState('');
   const [timeline, setTimeline] = useState(INITIAL_EARNINGS_TIMELINE);
   const [lastEarnedReward, setLastEarnedReward] = useState(null);
+  const [isBonusClaimed, setIsBonusClaimed] = useState(false);
 
   const triggerConfetti = () => {
     confetti({
@@ -35,12 +36,18 @@ export function useAdWatch() {
   };
 
   const completeWatching = (adId) => {
-    const targetAd = ads.find((a) => a.id === adId);
+    const targetAd = ads.find((a) => a.id === adId) || (activeAd?.id === adId ? activeAd : null);
     if (!targetAd) return;
 
-    setAds((prev) =>
-      prev.map((item) => (item.id === adId ? { ...item, status: 'completed' } : item))
-    );
+    const isBonus = targetAd.id.startsWith('bonus') || targetAd.id === 'bonus-promo-50';
+
+    if (isBonus) {
+      setIsBonusClaimed(true);
+    } else {
+      setAds((prev) =>
+        prev.map((item) => (item.id === adId ? { ...item, status: 'completed' } : item))
+      );
+    }
 
     const earnedAmount = targetAd.reward;
     setUserMetrics((prev) => ({
@@ -49,7 +56,7 @@ export function useAdWatch() {
       lifetimeEarnings: prev.lifetimeEarnings + earnedAmount,
       weeklyEarnings: prev.weeklyEarnings + earnedAmount,
       completedAdsCount: prev.completedAdsCount + 1,
-      availableAdsCount: Math.max(0, prev.availableAdsCount - 1)
+      availableAdsCount: isBonus ? prev.availableAdsCount : Math.max(0, prev.availableAdsCount - 1)
     }));
 
     const newEntry = {
@@ -57,7 +64,7 @@ export function useAdWatch() {
       adTitle: targetAd.title,
       amount: earnedAmount,
       time: 'Just now',
-      type: 'ad_watch'
+      type: isBonus ? 'streak_bonus' : 'ad_watch'
     };
     setTimeline((prev) => [newEntry, ...prev]);
 
@@ -74,6 +81,7 @@ export function useAdWatch() {
     setUserMetrics(INITIAL_USER_METRICS);
     setTimeline(INITIAL_EARNINGS_TIMELINE);
     setLastEarnedReward(null);
+    setIsBonusClaimed(false);
   };
 
   const filteredAds = useMemo(() => {
@@ -118,6 +126,8 @@ export function useAdWatch() {
     startWatching,
     closeModal,
     completeWatching,
-    resetAllAds
+    resetAllAds,
+    isBonusClaimed,
+    setIsBonusClaimed
   };
 }

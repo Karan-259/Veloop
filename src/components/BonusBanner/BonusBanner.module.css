@@ -1,130 +1,387 @@
+/* ═══ BONUS BANNER ════════════════════════════════════════ */
+.bonusBannerWrapper {
+  padding: 1.5rem 0 2rem;
+}
+
 .bannerInner {
-  border: 1px solid #7C3AED;
-  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.2);
-  border-radius: 18px;
-  padding: 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 1.75rem 2rem;
+  background: linear-gradient(
+    130deg,
+    rgba(20, 14, 44, 0.95) 0%,
+    rgba(28, 12, 56, 0.97) 50%,
+    rgba(18, 12, 36, 0.95) 100%
+  );
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow:
+    0 12px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(245, 158, 11, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   flex-wrap: wrap;
-  position: relative;
-  overflow: hidden;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.bannerInner::after {
-  content: '';
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Background blobs ── */
+.blobLeft {
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+  top: -150px;
+  left: -80px;
   pointer-events: none;
+  animation: blobPulse 6s ease-in-out infinite;
 }
 
+.blobRight {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  right: 100px;
+  pointer-events: none;
+  animation: blobPulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.6; }
+}
+
+/* ── Left Group ── */
 .leftGroup {
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
-  max-width: 650px;
+  max-width: 640px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .fireIconWrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.15));
+  border: 1px solid rgba(245, 158, 11, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--gold-accent);
+  animation: fireWiggle 2.5s ease-in-out infinite;
 }
 
+@keyframes fireWiggle {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50%       { transform: rotate(3deg) scale(1.05); }
+}
+
+.fireRing {
+  position: absolute;
+  inset: -4px;
+  border-radius: 20px;
+  border: 2px solid rgba(245, 158, 11, 0.2);
+  animation: ringPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50%       { transform: scale(1.12); opacity: 0.2; }
+}
+
+/* ── Badges ── */
 .badgeRow {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  margin-bottom: 0.4rem;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
   flex-wrap: wrap;
 }
 
 .multiplierBadge {
-  background: linear-gradient(135deg, #2563EB,#7C3AED);
+  background: var(--gradient-brand);
   color: #fff;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  padding: 0.2rem 0.6rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+
+.bonusTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
 }
 
-.bonusTag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--gold-accent);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
 .bannerTitle {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
 }
 
 .bannerDesc {
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   color: var(--text-secondary);
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
+
+/* ── Right Group ── */
+.rightGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* ── Countdown ── */
+.countdownBlock {
+  text-align: right;
+}
+
 .timerLabel {
-  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.68rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
 }
 
 .timeDigits {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .timeSegment {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.2rem 0.45rem;
-  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  min-width: 44px;
+}
+
+.timeValue {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
   color: var(--gold-accent);
+  line-height: 1;
+}
+
+.timeUnit {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
 }
 
 .colon {
-  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: rgba(245, 158, 11, 0.4);
+  margin-bottom: 6px;
 }
 
+/* ── Claim Button ── */
 .claimButton {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  background: var(--gradient-gold);
   color: #030712;
   border: none;
   font-weight: 800;
   font-size: 0.92rem;
-  padding: 0.75rem 1.4rem;
-  border-radius: 12px;
+  padding: 0.82rem 1.5rem;
+  border-radius: 14px;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
   transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.claimButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
 }
 
 .claimButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.55);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 32px rgba(245, 158, 11, 0.6);
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.claimButton:active {
+  transform: translateY(0) scale(1);
+}
+
+.chevron {
+  transition: transform 0.25s ease;
+}
+
+.claimButton:hover .chevron {
+  transform: translateX(3px);
+}
+
+/* ── Banner Image Container ── */
+.bannerImageContainer {
+  position: relative;
+  width: 140px;
+  height: 90px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.7),
+    0 0 16px rgba(245, 158, 11, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #000;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.bannerImageContainer:hover .bannerImage {
+  transform: scale(1.08);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(5, 7, 18, 0.85) 100%);
+  pointer-events: none;
+}
+
+.imageClaimed {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.statusPill {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--gold-accent);
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  text-transform: uppercase;
+}
+
+.statusPillClaimed {
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(6, 44, 28, 0.85);
+}
+
+.bannerInfoWrap {
+  flex: 1;
+}
+
+/* ── Subtle Ambient Background Image ── */
+.bgBackdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  filter: blur(30px);
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* ── Claimed State Banner Inner ── */
+.claimedBannerInner {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow:
+    0 12px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(16, 185, 129, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.claimButtonDone {
+  background: green!important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35) !important;
+  cursor: default !important;
+  transform: none !important;
+}
+
+.claimButtonDone:hover {
+  transform: none !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35) !important;
+}
+
+@media (max-width: 992px) {
+  .leftGroup {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerInner { padding: 1.4rem; }
+  .rightGroup  { align-items: flex-start; }
+  .bannerImageContainer {
+    width: 110px;
+    height: 75px;
+  }
 }

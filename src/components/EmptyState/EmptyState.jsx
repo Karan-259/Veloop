@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchX, RotateCcw, Sparkles } from 'lucide-react';
+import { SearchX, RotateCcw, Sparkles, Trophy, RefreshCw } from 'lucide-react';
 import styles from './EmptyState.module.css';
 
 export default function EmptyState({ type = 'no_ads', onResetFilters, onResetAllAds }) {
@@ -7,14 +7,30 @@ export default function EmptyState({ type = 'no_ads', onResetFilters, onResetAll
     return (
       <div className={styles.emptyContainer}>
         <div className={styles.iconCircleSuccess}>
-          <Sparkles size={36} className="text-warning" />
+          <Trophy size={32} />
         </div>
-        <h3 className={styles.emptyTitle}>You've Watched All Ads for Now!</h3>
+        <div className={styles.sparkleRow}>
+          <Sparkles size={14} className={styles.spark} />
+          <Sparkles size={10} className={styles.spark2} />
+          <Sparkles size={12} className={styles.spark3} />
+        </div>
+        <h3 className={styles.emptyTitle}>All Ads Watched! 🎉</h3>
         <p className={styles.emptyDesc}>
-          Incredible work! You have maximized today's available ad campaign rewards. New brand campaigns are refreshed every 4 hours.
+          Incredible work! You've maximized today's available ad campaigns and earned every VE on the table.
+          New brand campaigns refresh every 4 hours.
         </p>
-        <button onClick={onResetAllAds} className={styles.resetButton}>
-          <RotateCcw size={16} />
+        <div className={styles.statRow}>
+          <div className={styles.statChip}>
+            <span className={styles.statChipLabel}>Status</span>
+            <span className={styles.statChipValue}>All Complete</span>
+          </div>
+          <div className={styles.statChip}>
+            <span className={styles.statChipLabel}>Next refresh</span>
+            <span className={styles.statChipValue}>~4 hours</span>
+          </div>
+        </div>
+        <button id="empty-reset-all-btn" onClick={onResetAllAds} className={styles.resetButton}>
+          <RefreshCw size={15} />
           <span>Reset Demo Ads (For Evaluation)</span>
         </button>
       </div>
@@ -24,13 +40,14 @@ export default function EmptyState({ type = 'no_ads', onResetFilters, onResetAll
   return (
     <div className={styles.emptyContainer}>
       <div className={styles.iconCircle}>
-        <SearchX size={36} className="text-muted" />
+        <SearchX size={30} />
       </div>
       <h3 className={styles.emptyTitle}>No Ads Match Your Filter</h3>
       <p className={styles.emptyDesc}>
-        Try clearing your search query or selecting another category to view available campaigns.
+        Try clearing your search query or selecting a different category to browse available campaigns.
       </p>
-      <button onClick={onResetFilters} className={styles.resetButton}>
+      <button id="empty-clear-filters-btn" onClick={onResetFilters} className={styles.resetButton}>
+        <RotateCcw size={15} />
         <span>Clear Filters</span>
       </button>
     </div>

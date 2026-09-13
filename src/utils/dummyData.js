@@ -110,7 +110,7 @@ export const INITIAL_ADS_DATA = [
   }
 ];
 
-export const BONUS_PROMO = {
+export const  BONUS_PROMO = {
   id: 'bonus-flash-01',
   title: 'Limited-Time Power Hour Bonus',
   multiplier: '2.5x',

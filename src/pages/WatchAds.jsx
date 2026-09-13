@@ -9,8 +9,26 @@ import AdPlayerModal from '../components/AdPlayerModal/AdPlayerModal';
 import EarningsTimeline from '../components/EarningsTimeline/EarningsTimeline';
 import EmptyState from '../components/EmptyState/EmptyState';
 import { useAdWatch } from '../hooks/useAdWatch';
-import { Search, RefreshCw} from 'lucide-react';
+import { Search, RefreshCw, LayoutGrid, Zap } from 'lucide-react';
+import bonusLockedImg from '../assets/images/bonus-locked.jpg';
 import styles from './WatchAds.module.css';
+
+const BONUS_VIDEO_AD = {
+  id: 'bonus-promo-50',
+  title: 'Limited-Time Power Hour Mystery Box',
+  sponsor: 'VELOOP Prime Network',
+  category: 'bonus',
+  categoryLabel: 'Special Bonus Promo',
+  reward: 50,
+  duration: 15,
+  badge: 'Exclusive Bonus',
+  badgeVariant: 'gold',
+  status: 'available',
+  image: bonusLockedImg,
+  video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+  description: 'Complete watching this sponsored showcase video to unlock and claim your +50 VE bonus tokens instantly.',
+  tagline: 'Sponsor: VELOOP Prime Network'
+};
 
 export default function WatchAds() {
   const {
@@ -23,6 +41,7 @@ export default function WatchAds() {
     statusFilter,
     searchQuery,
     timeline,
+    isBonusClaimed,
     setActiveCategory,
     setStatusFilter,
     setSearchQuery,
@@ -33,16 +52,15 @@ export default function WatchAds() {
   } = useAdWatch();
 
   const categories = [
-    { id: 'all', label: 'All Campaigns', count: ads.length },
-    { id: 'high-yield', label: '⚡ High Yield (+30 VEs)', count: ads.filter((a) => a.badgeVariant === 'gold').length },
-    { id: 'quick', label: '⏱️ Quick Watch (≤20s)', count: ads.filter((a) => a.duration <= 20).length },
-    { id: 'fintech', label: '💳 FinTech', count: ads.filter((a) => a.category === 'fintech').length },
-    { id: 'tech', label: '🤖 Tech & AI', count: ads.filter((a) => a.category === 'tech' || a.category === 'crypto').length }
+    { id: 'all',       label: 'All Campaigns',         count: ads.length },
+    { id: 'high-yield',label: '⚡ High Yield (+30 VEs)', count: ads.filter((a) => a.badgeVariant === 'gold').length },
+    { id: 'quick',     label: '⏱️ Quick Watch (≤20s)',  count: ads.filter((a) => a.duration <= 20).length },
+    { id: 'fintech',   label: '💳 FinTech',             count: ads.filter((a) => a.category === 'fintech').length },
+    { id: 'tech',      label: '🤖 Tech & AI',           count: ads.filter((a) => a.category === 'tech' || a.category === 'crypto').length }
   ];
 
   const handleClaimBonusClick = () => {
-    const bonusTarget = ads.find((a) => a.badgeVariant === 'gold' && a.status === 'available') || ads[0];
-    startWatching(bonusTarget);
+    startWatching(BONUS_VIDEO_AD);
   };
 
   const scrollToAds = () => {
@@ -83,43 +101,60 @@ export default function WatchAds() {
         completedAdsCount={userMetrics.completedAdsCount}
       />
 
-      <BonusBanner onClaimBonus={handleClaimBonusClick} />
+      <BonusBanner
+        onClaimBonus={handleClaimBonusClick}
+        isClaimed={isBonusClaimed}
+      />
 
+      {/* ── Ad Inventory ── */}
       <main id="available-ads" className={styles.mainInventorySection}>
         <div className="container-fluid px-lg-5 px-3">
+
+          {/* Header */}
           <div className={styles.inventoryHeader}>
-            <div>
-              <h2 className={styles.inventoryTitle}>Available Advertisements</h2>
+            <div className={styles.inventoryTitleGroup}>
+              <div className={styles.inventoryEyebrow}>
+                <LayoutGrid size={11} />
+                Ad Inventory
+              </div>
+              <h2 className={styles.inventoryTitle}>
+                Available{' '}
+                <span className={styles.inventoryTitleSpan}>Advertisements</span>
+              </h2>
             </div>
 
             <div className={styles.headerActionGroup}>
               <div className={styles.searchBox}>
-                <Search size={16} className={styles.searchIcon} />
+                <Search size={15} className={styles.searchIcon} />
                 <input
+                  id="ad-search-input"
                   type="text"
-                  placeholder="Search by brand or category..."
+                  placeholder="Search brand or category..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className={styles.searchInput}
                 />
               </div>
 
-             <button
+              <button
+                id="reset-demo-btn"
                 onClick={resetAllAds}
                 className={styles.resetDemoBtn}
                 title="Reset watched ads for repeated review"
               >
-                <RefreshCw size={15} />
+                <RefreshCw size={14} />
                 <span className="d-none d-sm-inline">Reset State</span>
               </button>
             </div>
           </div>
 
+          {/* Filter bar */}
           <div className={styles.filterBar}>
             <div className={styles.categoryTabs}>
               {categories.map((cat) => (
                 <button
                   key={cat.id}
+                  id={`cat-tab-${cat.id}`}
                   onClick={() => setActiveCategory(cat.id)}
                   className={`${styles.catTab} ${activeCategory === cat.id ? styles.catTabActive : ''}`}
                 >
@@ -131,18 +166,21 @@ export default function WatchAds() {
 
             <div className={styles.statusPills}>
               <button
+                id="status-all"
                 onClick={() => setStatusFilter('all')}
                 className={`${styles.statusFilterBtn} ${statusFilter === 'all' ? styles.statusFilterActive : ''}`}
               >
-                All Status
+                All
               </button>
               <button
+                id="status-available"
                 onClick={() => setStatusFilter('available')}
                 className={`${styles.statusFilterBtn} ${statusFilter === 'available' ? styles.statusFilterActive : ''}`}
               >
                 Available ({ads.filter((a) => a.status === 'available').length})
               </button>
               <button
+                id="status-completed"
                 onClick={() => setStatusFilter('completed')}
                 className={`${styles.statusFilterBtn} ${statusFilter === 'completed' ? styles.statusFilterActive : ''}`}
               >
@@ -151,6 +189,7 @@ export default function WatchAds() {
             </div>
           </div>
 
+          {/* Cards grid */}
           <div className="row g-4">
             <div className="col-xl-9 col-lg-8 col-12">
               {filteredAds.length === 0 ? (
@@ -178,27 +217,34 @@ export default function WatchAds() {
               <EarningsTimeline timeline={timeline} />
             </div>
           </div>
+
         </div>
       </main>
 
       <RewardInfo />
 
+      {/* Footer */}
       <footer className={styles.pageFooter}>
         <div className="container-fluid px-lg-5 px-3">
           <div className={styles.footerInner}>
-            <div className="d-flex align-items-center gap-2">
+            <div className={styles.footerBrandGroup}>
+              <Zap size={16} style={{ color: '#8b5cf6' }} />
               <span className={styles.footerBrand}>VELOOP Rewards</span>
+              <span className={styles.footerTagline}>· Watch · Earn · Withdraw</span>
             </div>
-            <div className="text-secondary">
-               &copy; 2026 ApexDesign Inc. All rights reserved.
-            </div>
+            <span className={styles.footerCopy}>
+              © 2026 ApexDesign Inc. All rights reserved.
+            </span>
           </div>
         </div>
       </footer>
-      <AdPlayerModal ad={activeAd}
+
+      <AdPlayerModal
+        ad={activeAd}
         isOpen={isModalOpen}
         onClose={closeModal}
-        onComplete={completeWatching}/>
+        onComplete={completeWatching}
+      />
     </div>
   );
 }
