@@ -106,11 +106,9 @@ export default function WatchAds() {
         isClaimed={isBonusClaimed}
       />
 
-      {/* ── Ad Inventory ── */}
       <main id="available-ads" className={styles.mainInventorySection}>
         <div className="container-fluid px-lg-5 px-3">
 
-          {/* Header */}
           <div className={styles.inventoryHeader}>
             <div className={styles.inventoryTitleGroup}>
               <div className={styles.inventoryEyebrow}>
@@ -148,7 +146,6 @@ export default function WatchAds() {
             </div>
           </div>
 
-          {/* Filter bar */}
           <div className={styles.filterBar}>
             <div className={styles.categoryTabs}>
               {categories.map((cat) => (
@@ -189,7 +186,6 @@ export default function WatchAds() {
             </div>
           </div>
 
-          {/* Cards grid */}
           <div className="row g-4">
             <div className="col-xl-9 col-lg-8 col-12">
               {filteredAds.length === 0 ? (
@@ -223,7 +219,6 @@ export default function WatchAds() {
 
       <RewardInfo />
 
-      {/* Footer */}
       <footer className={styles.pageFooter}>
         <div className="container-fluid px-lg-5 px-3">
           <div className={styles.footerInner}>

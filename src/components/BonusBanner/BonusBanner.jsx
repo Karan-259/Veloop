@@ -27,7 +27,7 @@ export default function BonusBanner({ onClaimBonus, isClaimed }) {
     <div className={styles.bonusBannerWrapper}>
       <div className="container-fluid px-lg-5 px-3">
         <div className={`${styles.bannerInner} ${isClaimed ? styles.claimedBannerInner : ''}`}>
-          {/* Subtle blurred backdrop from banner image */}
+          
           <img
             src={bannerImageSrc}
             alt=""
@@ -35,13 +35,10 @@ export default function BonusBanner({ onClaimBonus, isClaimed }) {
             className={styles.bgBackdrop}
           />
 
-          {/* Background glow blobs */}
           <span className={styles.blobLeft} />
           <span className={styles.blobRight} />
 
-          {/* ── Left group ── */}
           <div className={styles.leftGroup}>
-            {/* Banner Image Preview Card */}
             <div className={`${styles.bannerImageContainer} ${isClaimed ? styles.imageClaimed : ''}`}>
               <img
                 src={bannerImageSrc}
@@ -72,9 +69,8 @@ export default function BonusBanner({ onClaimBonus, isClaimed }) {
             </div>
           </div>
 
-          {/* ── Right group ── */}
           <div className={styles.rightGroup}>
-            {/* Countdown */}
+           
             <div className={styles.countdownBlock}>
               <span className={styles.timerLabel}>
                 <Clock size={11} className="me-1" />
@@ -98,7 +94,7 @@ export default function BonusBanner({ onClaimBonus, isClaimed }) {
               </div>
             </div>
 
-            {/* CTA */}
+            
             {isClaimed ? (
               <button
                 id="bonus-claim-btn"

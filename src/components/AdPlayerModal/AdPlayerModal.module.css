@@ -208,7 +208,6 @@
   transition: width 0.3s ease-out;
 }
 
-/* Modal Footer */
 .modalFooter {
   padding: 1.15rem 1.5rem;
   display: flex;
@@ -239,7 +238,6 @@
   margin-top: 0.15rem;
 }
 
-/* Claim Button */
 .claimRewardButton {
   background: #a855f7;
   color: #ffffff;
@@ -288,7 +286,6 @@
   cursor: not-allowed;
 }
 
-/* Completed Overlay */
 .completedOverlay {
   position: absolute;
   inset: 0;
@@ -336,7 +333,6 @@
   color: #c084fc;
 }
 
-/* Quick Test Mode Button */
 .testModeButton {
   background: rgba(168, 85, 247, 0.12);
   border: 1px solid rgba(168, 85, 247, 0.35);

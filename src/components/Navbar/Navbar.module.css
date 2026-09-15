@@ -113,7 +113,6 @@
   letter-spacing: 0.04em;
 }
 
-/* ── Right Group ── */
 .rightGroup {
   display: flex;
   align-items: center;
@@ -167,7 +166,6 @@
   .liveChip  { display: none; }
 }
 
-/* ── Wallet Pill ── */
 .walletPill {
   display: flex;
   align-items: center;

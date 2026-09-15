@@ -1,10 +1,9 @@
-/* ═══ REWARD INFO ════════════════════════════════════════ */
+
 .rewardInfoSection {
   padding: 3rem 0 4rem;
   position: relative;
 }
 
-/* ── Header ── */
 .sectionHeader {
   margin-bottom: 2.5rem;
   max-width: 640px;
@@ -53,7 +52,6 @@
   line-height: 1.65;
 }
 
-/* ── Info Cards ── */
 .infoCard {
   background: var(--bg-glass-card);
   backdrop-filter: blur(var(--glass-blur));
@@ -91,7 +89,6 @@
 
 .infoCard:hover::before { opacity: 1; }
 
-/* Accent borders + colors */
 .cyan   { border-color: rgba(6, 182, 212, 0.2); }
 .gold   { border-color: rgba(245, 158, 11, 0.2); }
 .emerald{ border-color: rgba(16, 185, 129, 0.2); }
@@ -104,7 +101,6 @@
 .gold:hover    { border-color: rgba(245, 158, 11, 0.4); }
 .emerald:hover { border-color: rgba(16, 185, 129, 0.4); }
 
-/* ── Card interior ── */
 .cardTopRow {
   display: flex;
   align-items: center;
@@ -167,7 +163,6 @@
 .pill_gold    { background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--gold-accent); }
 .pill_emerald { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--primary-light); }
 
-/* ── Calculator Banner ── */
 .calcBanner {
   position: relative;
   background: linear-gradient(145deg, rgba(13, 20, 40, 0.95), rgba(8, 12, 26, 0.98));
@@ -217,7 +212,6 @@
   line-height: 1.55;
 }
 
-/* ── Slider ── */
 .sliderWrap {
   position: relative;
 }
@@ -280,7 +274,6 @@
   cursor: pointer;
 }
 
-/* Actual visible thumb via ::before on track */
 .sliderTrack::after {
   content: '';
   position: absolute;
@@ -305,7 +298,6 @@
   font-weight: 500;
 }
 
-/* ── Payout Summary ── */
 .payoutSummaryBox {
   background: rgba(4, 7, 15, 0.85);
   border: 1px solid var(--border-medium);

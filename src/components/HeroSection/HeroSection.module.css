@@ -200,7 +200,6 @@
   transform: translateY(-2px);
 }
 
-/* ── Trust Strip ── */
 .trustStrip {
   display: flex;
   align-items: center;
@@ -228,7 +227,6 @@
   background: var(--border-subtle);
 }
 
-/* ── Progress Card ── */
 .progressCard {
   background: linear-gradient(145deg, rgba(13, 20, 40, 0.92), rgba(8, 13, 26, 0.96));
   border: 1px solid rgba(139, 92, 246, 0.22);
@@ -289,7 +287,6 @@
   white-space: nowrap;
 }
 
-/* ── Ring ── */
 .progressRingRow {
   display: flex;
   align-items: center;
@@ -380,7 +377,6 @@
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
 }
 
-/* ── Mini Stats ── */
 .miniStatsGrid {
   display: flex;
   align-items: center;
@@ -446,7 +442,6 @@
   font-weight: 700;
 }
 
-/* ── Payout Status ── */
 .payoutStatusBadge {
   display: flex;
   align-items: center;

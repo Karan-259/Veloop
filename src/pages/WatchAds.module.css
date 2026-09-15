@@ -1,16 +1,14 @@
-/* ═══ WATCH ADS PAGE ═════════════════════════════════════ */
+
 .pageContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ── Main Inventory Section ── */
 .mainInventorySection {
   padding: 2.5rem 0 4rem;
 }
 
-/* ── Inventory Header ── */
 .inventoryHeader {
   display: flex;
   align-items: flex-end;
@@ -62,7 +60,6 @@
   flex-wrap: wrap;
 }
 
-/* ── Search ── */
 .searchBox {
   position: relative;
   min-width: 250px;
@@ -100,7 +97,6 @@
   color: var(--text-muted);
 }
 
-/* ── Reset button ── */
 .resetDemoBtn {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
@@ -125,7 +121,6 @@
   transform: translateY(-1px);
 }
 
-/* ── Filter Bar ── */
 .filterBar {
   display: flex;
   align-items: center;
@@ -149,7 +144,6 @@
   border-radius: 9999px;
 }
 
-/* ── Category Tabs ── */
 .categoryTabs {
   display: flex;
   align-items: center;
@@ -203,7 +197,6 @@
   background: rgba(79, 110, 247, 0.25);
 }
 
-/* ── Status Pills ── */
 .statusPills {
   display: flex;
   align-items: center;
@@ -238,7 +231,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* ── Footer ── */
 .pageFooter {
   margin-top: auto;
   border-top: 1px solid var(--border-subtle);

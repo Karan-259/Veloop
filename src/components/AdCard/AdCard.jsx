@@ -21,7 +21,6 @@ export default function AdCard({ ad, onWatchClick }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* ── Image Container ── */}
       <div className={styles.imageContainer}>
         <img
           src={ad.image}
@@ -30,10 +29,8 @@ export default function AdCard({ ad, onWatchClick }) {
           loading="lazy"
         />
 
-        {/* Gradient overlay */}
         <div className={styles.imageOverlay} />
 
-        {/* Top badges */}
         <div className={styles.topBadgeRow}>
           {badge && (
             <span className={`${styles.variantBadge} ${styles[badge.cls]}`}>
@@ -46,8 +43,6 @@ export default function AdCard({ ad, onWatchClick }) {
             {formatSeconds(ad.duration)}
           </span>
         </div>
-
-        {/* Status pill (bottom left) */}
         <div className={styles.statusIndicator}>
           {isCompleted ? (
             <span className={styles.statusCompletedPill}>
@@ -60,7 +55,6 @@ export default function AdCard({ ad, onWatchClick }) {
           )}
         </div>
 
-        {/* Play overlay on hover */}
         {!isCompleted && (
           <div className={`${styles.playOverlay} ${isHovered ? styles.playOverlayVisible : ''}`}>
             <div className={styles.playButton}>
@@ -70,7 +64,6 @@ export default function AdCard({ ad, onWatchClick }) {
         )}
       </div>
 
-      {/* ── Card Body ── */}
       <div className={styles.cardBody}>
         <div className={styles.sponsorRow}>
           <span className={styles.categoryTag}>{ad.categoryLabel}</span>
@@ -80,7 +73,6 @@ export default function AdCard({ ad, onWatchClick }) {
         <h3 className={styles.adTitle}>{ad.title}</h3>
         <p className={styles.adDesc}>{ad.description}</p>
 
-        {/* Reward row */}
         <div className={styles.rewardRow}>
           <div className={styles.rewardLeft}>
             <span className={styles.rewardLabel}>Reward</span>

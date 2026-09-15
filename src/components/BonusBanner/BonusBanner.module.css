@@ -1,4 +1,4 @@
-/* ═══ BONUS BANNER ════════════════════════════════════════ */
+
 .bonusBannerWrapper {
   padding: 1.5rem 0 2rem;
 }
@@ -32,7 +32,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Background blobs ── */
 .blobLeft {
   position: absolute;
   width: 350px;
@@ -62,7 +61,6 @@
   50%       { transform: scale(1.15); opacity: 0.6; }
 }
 
-/* ── Left Group ── */
 .leftGroup {
   display: flex;
   align-items: flex-start;
@@ -106,7 +104,6 @@
   50%       { transform: scale(1.12); opacity: 0.2; }
 }
 
-/* ── Badges ── */
 .badgeRow {
   display: flex;
   align-items: center;
@@ -152,7 +149,6 @@
   line-height: 1.55;
 }
 
-/* ── Right Group ── */
 .rightGroup {
   display: flex;
   flex-direction: column;
@@ -163,7 +159,6 @@
   flex-shrink: 0;
 }
 
-/* ── Countdown ── */
 .countdownBlock {
   text-align: right;
 }
@@ -221,7 +216,6 @@
   margin-bottom: 6px;
 }
 
-/* ── Claim Button ── */
 .claimButton {
   background: var(--gradient-gold);
   color: #030712;
@@ -267,7 +261,6 @@
   transform: translateX(3px);
 }
 
-/* ── Banner Image Container ── */
 .bannerImageContainer {
   position: relative;
   width: 140px;
@@ -336,7 +329,6 @@
   flex: 1;
 }
 
-/* ── Subtle Ambient Background Image ── */
 .bgBackdrop {
   position: absolute;
   inset: 0;
@@ -349,7 +341,6 @@
   transition: opacity 0.6s ease;
 }
 
-/* ── Claimed State Banner Inner ── */
 .claimedBannerInner {
   border-color: rgba(16, 185, 129, 0.4);
   box-shadow:

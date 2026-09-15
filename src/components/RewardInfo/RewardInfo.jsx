@@ -42,7 +42,6 @@ export default function RewardInfo() {
     <section id="how-it-works" className={styles.rewardInfoSection}>
       <div className="container-fluid px-lg-5 px-3">
 
-        {/* ── Section Header ── */}
         <div className={styles.sectionHeader}>
           <span className={styles.sectionEyebrow}>
             <Zap size={12} className="me-1" />
@@ -58,7 +57,6 @@ export default function RewardInfo() {
           </p>
         </div>
 
-        {/* ── Step Cards ── */}
         <div className="row g-4 mb-5">
           {steps.map((step) => {
             const Icon = step.icon;
@@ -87,7 +85,6 @@ export default function RewardInfo() {
           })}
         </div>
 
-        {/* ── Calculator Banner ── */}
         <div className={styles.calcBanner}>
           <div className={styles.calcBannerBg} />
           <div className="row align-items-center g-4">

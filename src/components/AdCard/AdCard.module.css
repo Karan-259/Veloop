@@ -1,4 +1,4 @@
-/* ═══ AD CARD ════════════════════════════════════════════ */
+
 .cardWrapper {
   background: var(--bg-glass-card);
   backdrop-filter: blur(var(--glass-blur));
@@ -39,7 +39,6 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ── Image ── */
 .imageContainer {
   position: relative;
   width: 100%;
@@ -70,7 +69,6 @@
   );
 }
 
-/* ── Top Badges ── */
 .topBadgeRow {
   position: absolute;
   top: 0.85rem;
@@ -112,7 +110,6 @@
   margin-left: auto;
 }
 
-/* ── Status Indicators ── */
 .statusIndicator {
   position: absolute;
   bottom: 0.85rem;
@@ -146,7 +143,6 @@
   backdrop-filter: blur(8px);
 }
 
-/* ── Play Overlay ── */
 .playOverlay {
   position: absolute;
   inset: 0;
@@ -181,7 +177,6 @@
   transform: scale(1);
 }
 
-/* ── Card Body ── */
 .cardBody {
   padding: 1.3rem;
   display: flex;
@@ -241,7 +236,6 @@
   overflow: hidden;
 }
 
-/* ── Reward Row ── */
 .rewardRow {
   display: flex;
   align-items: stretch;
@@ -305,7 +299,6 @@
   color: var(--primary-light);
 }
 
-/* ── CTA Button ── */
 .ctaButton {
   width: 100%;
   padding: 0.88rem 1.25rem;

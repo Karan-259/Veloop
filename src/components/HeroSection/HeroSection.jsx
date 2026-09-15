@@ -68,7 +68,6 @@ export default function HeroSection({
                 </button>
               </div>
 
-              {/* Trust strip */}
               <div className={styles.trustStrip}>
                 <div className={styles.trustItem}>
                   <CheckCircle2 size={14} className={styles.trustIcon} />
@@ -88,10 +87,8 @@ export default function HeroSection({
             </div>
           </div>
 
-          {/* ── Right Card ── */}
           <div className="col-lg-5">
             <div className={styles.progressCard}>
-              {/* Card header */}
               <div className={styles.progressCardHeader}>
                 <div>
                   <span className={styles.subCardLabel}>Daily Earnings Target</span>
@@ -102,7 +99,6 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Ring + stats */}
               <div className={styles.progressRingRow}>
                 <div className={styles.svgRingWrap}>
                   <svg width="108" height="108" viewBox="0 0 108 108" className={styles.ringSvg}>
@@ -120,9 +116,7 @@ export default function HeroSection({
                         </feMerge>
                       </filter>
                     </defs>
-                    {/* Track */}
                     <circle cx="54" cy="54" r={radius} stroke="rgba(255,255,255,0.06)" strokeWidth="8" fill="transparent" />
-                    {/* Progress */}
                     <circle
                       cx="54" cy="54" r={radius}
                       stroke="url(#ringGrad)"
@@ -152,7 +146,6 @@ export default function HeroSection({
                       ? `${dailyGoal - todayEarnings} VEs remaining to unlock milestone bonus`
                       : '🎉 Daily Goal Achieved! Bonus Unlocked!'}
                   </p>
-                  {/* Progress bar */}
                   <div className={styles.linearBar}>
                     <div
                       className={styles.linearBarFill}
@@ -162,7 +155,6 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Mini stats */}
               <div className={styles.miniStatsGrid}>
                 <div className={styles.miniStatItem}>
                   <div className={styles.miniStatIconWrap} data-type="available">
@@ -189,7 +181,6 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Payout status */}
               <div className={styles.payoutStatusBadge}>
                 <span className={styles.payoutDot} />
                 <span>Eligible for Payout · Min 500 VEs threshold</span>
