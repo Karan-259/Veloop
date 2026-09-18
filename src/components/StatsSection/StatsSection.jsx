@@ -31,7 +31,7 @@ export default function StatsSection({
       id: 'lifetime',
       title: 'Total Lifetime VEs',
       value: `${formatVEs(animatedLifetime)} VEs`,
-      subvalue: `= ${veToUSD(lifetimeEarnings)}`,
+      subvalue: `=${veToUSD(lifetimeEarnings)}`,
       trend: 'Lifetime Balance',
       icon: Wallet,
       accentColor: 'gold'
@@ -72,7 +72,7 @@ export default function StatsSection({
           {statsList.map((item, idx) => {
             const IconComponent = item.icon;
             return (
-              <div key={item.id} className="col-xl col-md-4 col-sm-6 col-12">
+              <div key={item.id} className="col-xl col-md-4 col-sm-10 col-6">
                 <div
                   className={`${styles.statCard} ${styles[item.accentColor]}`}
                   style={{ animationDelay: `${idx * 0.07}s` }}
