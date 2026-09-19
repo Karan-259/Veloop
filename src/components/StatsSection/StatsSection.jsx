@@ -49,7 +49,7 @@ export default function StatsSection({
       id: 'completed',
       title: 'Ads Watched Today',
       value: `${animatedCompleted}`,
-      subvalue: 'Verified views',
+      subvalue: 'Completed',
       trend: 'Daily active',
       icon: CheckCircle2,
       accentColor: 'purple'
@@ -58,7 +58,7 @@ export default function StatsSection({
       id: 'remaining',
       title: 'Remaining Ads',
       value: `${animatedAvailable}`,
-      subvalue: 'Ready to watch',
+      subvalue: 'Available',
       trend: 'Fresh inventory',
       icon: Clock,
       accentColor: 'indigo'
